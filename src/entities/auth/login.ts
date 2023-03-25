@@ -3,7 +3,7 @@ import { User } from "../user"
 import { TypeLogin } from "./type_login";
 
 @Entity()
-export class Login extends BaseEntity{
+export class Login {
 
     @PrimaryGeneratedColumn()
     id: number;

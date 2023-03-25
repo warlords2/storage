@@ -1,9 +1,11 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm"
 import { User as IUser} from '@warlords/common/';
 import { Login } from "./auth/login";
+import { World } from "./game/world";
+import { Player } from "./game/player";
 
 @Entity()
-export class User extends BaseEntity implements IUser{
+export class User implements IUser{
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -13,5 +15,8 @@ export class User extends BaseEntity implements IUser{
 
     @OneToMany(() => Login, (login) => login.user )
     logins: Login[];
+
+    @OneToMany(() => Player, (player)=> player.user)
+    players: Player[];
 
 }

@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+    database:
+        image: postgres
+        restart: always
+        env_file: .env
+        networks:
+            - bridge_net
+        volumes:
+            - ./db/postgresql:/var/lib/postgresql
+        ports:
+            - "5432:5432"
+networks:
+    bridge_net:
+        driver: bridge

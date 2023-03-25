@@ -11,6 +11,15 @@
     "start:dev": "npx nodemon",
     "start": "npm run build && node dist/index.js",
     "build": "rimraf ./dist && tsc",
+
+    "entity:create": "./node_modules/.bin/ts-node ts-node ./node_modules/typeorm/cli.js entity:create -n",
+    "migrate:generate": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:generate -n",
+    "migrate:run": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run",
+    "migrate:revert": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:revert",
+    "_schema:sync":"WARNNING!!! shema:sync clear data",
+    "schema:sync":"npx typeorm-ts-node-esm schema:sync -d ./src/datasource.config.ts",
+    "schema:drop": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js schema:drop",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "gil",
