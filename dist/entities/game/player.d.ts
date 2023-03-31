@@ -7,4 +7,5 @@ export declare class Player extends Npc implements IPlayer {
     name: string;
     user: User;
     world: World;
+    constructor(values?: any);
 }

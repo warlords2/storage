@@ -31,8 +31,15 @@ var world_1 = require("./world");
 var typeorm_1 = require("typeorm");
 var Player = exports.Player = /** @class */ (function (_super) {
     __extends(Player, _super);
-    function Player() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Player(values) {
+        if (values === void 0) { values = {}; }
+        var _this = this;
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return _this;
+        }
+        _this = _super.call(this, values) || this;
+        Object.assign(_this, values);
+        return _this;
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -51,7 +58,8 @@ var Player = exports.Player = /** @class */ (function (_super) {
         __metadata("design:type", world_1.World)
     ], Player.prototype, "world", void 0);
     Player = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Player);
     return Player;
 }(npc_1.Npc));

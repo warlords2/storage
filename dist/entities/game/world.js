@@ -16,7 +16,12 @@ var npc_1 = require("./npc");
 var player_1 = require("./player");
 var province_1 = require("./province");
 var World = exports.World = /** @class */ (function () {
-    function World() {
+    function World(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -44,7 +49,8 @@ var World = exports.World = /** @class */ (function () {
         __metadata("design:type", Array)
     ], World.prototype, "players", void 0);
     World = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], World);
     return World;
 }());

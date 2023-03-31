@@ -8,4 +8,5 @@ export declare class Province implements IProvince {
     position: Position;
     world: World;
     cities: City[];
+    constructor(values?: any);
 }

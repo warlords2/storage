@@ -19,4 +19,12 @@ export class Player extends Npc implements IPlayer{
     @ManyToOne(()=> World, (world)=> world.players)
     world: World;
 
+    constructor(values: any = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+          return;
+        }
+        super(values);
+        Object.assign(this, values);
+    }
+
 }

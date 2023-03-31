@@ -14,7 +14,12 @@ var typeorm_1 = require("typeorm");
 var user_1 = require("../user");
 var type_login_1 = require("./type_login");
 var Login = exports.Login = /** @class */ (function () {
-    function Login() {
+    function Login(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -45,7 +50,8 @@ var Login = exports.Login = /** @class */ (function () {
         __metadata("design:type", user_1.User)
     ], Login.prototype, "user", void 0);
     Login = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Login);
     return Login;
 }());

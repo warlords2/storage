@@ -7,4 +7,5 @@ export declare class Login {
     nonce: string;
     type: TypeLogin;
     user: User;
+    constructor(values?: any);
 }

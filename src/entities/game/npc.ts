@@ -20,4 +20,11 @@ export class Npc implements INpc{
 
     @OneToMany(()=> City, (city)=> city.owner)
     cities: City;
+
+    constructor(values: any = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+          return;
+        }
+        Object.assign(this, values);
+    }
 }

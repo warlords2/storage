@@ -6,4 +6,5 @@ export declare class Building implements IBuilding {
     type: BuildingType;
     city: City;
     position: Position;
+    constructor(values?: any);
 }

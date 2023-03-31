@@ -19,7 +19,7 @@
     "migrate:revert": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:revert",
     "_schema:sync":"WARNNING!!! shema:sync clear data",
     "schema:sync":"npx typeorm-ts-node-esm schema:sync -d ./src/datasource.config.ts",
-    "schema:drop": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js schema:drop",
+    "schema:drop": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js schema:drop -d ./src/datasource.config.ts",
 
     "test": "echo \"Error: no test specified\" && exit 1"
   },

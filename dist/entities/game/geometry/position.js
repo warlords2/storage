@@ -12,7 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Position = void 0;
 var typeorm_1 = require("typeorm");
 var Position = exports.Position = /** @class */ (function () {
-    function Position() {
+    function Position(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -27,7 +32,8 @@ var Position = exports.Position = /** @class */ (function () {
         __metadata("design:type", Number)
     ], Position.prototype, "y", void 0);
     Position = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Position);
     return Position;
 }());

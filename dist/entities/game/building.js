@@ -14,7 +14,12 @@ var typeorm_1 = require("typeorm");
 var city_1 = require("./city");
 var position_1 = require("./geometry/position");
 var Building = exports.Building = /** @class */ (function () {
-    function Building() {
+    function Building(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -30,7 +35,8 @@ var Building = exports.Building = /** @class */ (function () {
         __metadata("design:type", position_1.Position)
     ], Building.prototype, "position", void 0);
     Building = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Building);
     return Building;
 }());

@@ -13,7 +13,12 @@ exports.Sale = void 0;
 var typeorm_1 = require("typeorm");
 var market_1 = require("../market");
 var Sale = exports.Sale = /** @class */ (function () {
-    function Sale() {
+    function Sale(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -24,7 +29,8 @@ var Sale = exports.Sale = /** @class */ (function () {
         __metadata("design:type", market_1.Market)
     ], Sale.prototype, "market", void 0);
     Sale = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Sale);
     return Sale;
 }());

@@ -11,4 +11,11 @@ export class Offer implements IOffer{
     @ManyToOne(()=> Market, (market)=> market.offers)
     market: Market;
 
+    constructor(values: any = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+          return;
+        }
+        Object.assign(this, values);
+    }
+    
 }

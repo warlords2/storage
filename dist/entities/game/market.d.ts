@@ -5,4 +5,5 @@ export declare class Market implements IMarket {
     id: number;
     offers: Offer[];
     sales: Sale[];
+    constructor(values?: any);
 }

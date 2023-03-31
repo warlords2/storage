@@ -17,4 +17,11 @@ export class Building implements IBuilding {
     @OneToOne(() => Position)
     @JoinColumn()
     position: Position;
+
+    constructor(values: any = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+          return;
+        }
+        Object.assign(this, values);
+    }
 }

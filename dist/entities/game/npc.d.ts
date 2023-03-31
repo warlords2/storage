@@ -7,4 +7,5 @@ export declare class Npc implements INpc {
     type: NpcType;
     world: World;
     cities: City;
+    constructor(values?: any);
 }

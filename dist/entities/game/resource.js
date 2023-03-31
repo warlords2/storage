@@ -14,7 +14,12 @@ var common_1 = require("@warlords/common");
 var typeorm_1 = require("typeorm");
 var city_1 = require("./city");
 var Resource = exports.Resource = /** @class */ (function () {
-    function Resource() {
+    function Resource(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -33,7 +38,8 @@ var Resource = exports.Resource = /** @class */ (function () {
         __metadata("design:type", city_1.City)
     ], Resource.prototype, "city", void 0);
     Resource = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Resource);
     return Resource;
 }());

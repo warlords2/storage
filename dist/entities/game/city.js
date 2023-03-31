@@ -17,7 +17,12 @@ var npc_1 = require("./npc");
 var province_1 = require("./province");
 var resource_1 = require("./resource");
 var City = exports.City = /** @class */ (function () {
-    function City() {
+    function City(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -49,7 +54,8 @@ var City = exports.City = /** @class */ (function () {
         __metadata("design:type", province_1.Province)
     ], City.prototype, "province", void 0);
     City = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], City);
     return City;
 }());

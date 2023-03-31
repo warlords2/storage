@@ -12,4 +12,5 @@ export declare class City implements ICity {
     buildings: Building[];
     resources: Resource[];
     province: Province;
+    constructor(values?: any);
 }

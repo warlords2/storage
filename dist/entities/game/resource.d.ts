@@ -5,4 +5,5 @@ export declare class Resource implements IResource {
     amount: number;
     type: ResourceType;
     city: City;
+    constructor(values?: any);
 }

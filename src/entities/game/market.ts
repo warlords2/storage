@@ -14,4 +14,11 @@ export class Market implements IMarket{
 
     @OneToMany(() => Sale, (sale) => sale.market )
     sales: Sale[];
+
+    constructor(values: any = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+          return;
+        }
+        Object.assign(this, values);
+    }
 }

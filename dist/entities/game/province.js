@@ -15,7 +15,12 @@ var city_1 = require("./city");
 var position_1 = require("./geometry/position");
 var world_1 = require("./world");
 var Province = exports.Province = /** @class */ (function () {
-    function Province() {
+    function Province(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -39,7 +44,8 @@ var Province = exports.Province = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Province.prototype, "cities", void 0);
     Province = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Province);
     return Province;
 }());

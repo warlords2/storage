@@ -30,4 +30,11 @@ export class City implements ICity{
 
     @ManyToOne(()=> Province, (province)=> province.cities)
     province: Province;
+
+    constructor(values: any = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+          return;
+        }
+        Object.assign(this, values);
+    }
 }

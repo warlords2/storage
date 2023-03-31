@@ -10,4 +10,5 @@ export declare class World implements IWorld {
     provinces: Province[];
     npcs: Npc[];
     players: Player[];
+    constructor(values?: any);
 }

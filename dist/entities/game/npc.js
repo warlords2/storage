@@ -15,7 +15,12 @@ var typeorm_1 = require("typeorm");
 var city_1 = require("./city");
 var world_1 = require("./world");
 var Npc = exports.Npc = /** @class */ (function () {
-    function Npc() {
+    function Npc(values) {
+        if (values === void 0) { values = {}; }
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
     }
     __decorate([
         (0, typeorm_1.PrimaryGeneratedColumn)(),
@@ -38,7 +43,8 @@ var Npc = exports.Npc = /** @class */ (function () {
         __metadata("design:type", city_1.City)
     ], Npc.prototype, "cities", void 0);
     Npc = __decorate([
-        (0, typeorm_1.Entity)()
+        (0, typeorm_1.Entity)(),
+        __metadata("design:paramtypes", [Object])
     ], Npc);
     return Npc;
 }());
