@@ -143,7 +143,7 @@ var ManagerDatabase = /** @class */ (function () {
     };
     // Try resolve metadata typeorm
     ManagerDatabase.prototype.getRepository = function (entity_class) {
-        var type_class = entity_class.constructor.name.toLowerCase();
+        var type_class = entity_class.name.toLowerCase();
         var repository;
         switch (type_class) {
             case "user":

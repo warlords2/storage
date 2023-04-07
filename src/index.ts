@@ -96,7 +96,7 @@ export class ManagerDatabase{
     // Try resolve metadata typeorm
     public getRepository( entity_class:any ): Repository<any>{
         
-        let type_class = entity_class.constructor.name.toLowerCase();
+        let type_class = entity_class.name.toLowerCase();
         let repository:Repository<any>;
 
         switch(type_class){
