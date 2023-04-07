@@ -1,8 +1,21 @@
 let dotenv  = require('dotenv');
 dotenv.config({path:'./.env'});
 
-import { DataSource } from "typeorm";
+import { DataSource, Repository } from "typeorm";
 import { buildDatabase, ConectionParameter}  from "./database";
+import { Login } from "./entities/auth/login";
+import { Building } from "./entities/game/building";
+import { City } from "./entities/game/city";
+import { Position } from "./entities/game/geometry/position";
+import { Market } from "./entities/game/market";
+import { Offer } from "./entities/game/market/offer";
+import { Sale } from "./entities/game/market/sale";
+import { Npc } from "./entities/game/npc";
+import { Player } from "./entities/game/player";
+import { Province } from "./entities/game/province";
+import { Resource } from "./entities/game/resource";
+import { World } from "./entities/game/world";
+import { User } from "./entities/user";
 export { DataSource } from "typeorm";
 
 export { User } from "./entities/user";
@@ -80,4 +93,56 @@ export class ManagerDatabase{
             })
         })
     }
+    // Try resolve metadata typeorm
+    public getRepository( entity_class:any ): Repository<any>{
+        
+        let type_class = entity_class.constructor.name.toLowerCase();
+        let repository:Repository<any>;
+
+        switch(type_class){
+            case "user":
+                repository = this.dataSource.getRepository(User);
+                break;
+            case "login":
+                repository = this.dataSource.getRepository(Login);
+                break;
+            case "world":
+                repository = this.dataSource.getRepository(World);
+                break;
+            case "resource":
+                repository = this.dataSource.getRepository(Resource);
+                break;
+            case "province":
+                repository = this.dataSource.getRepository(Province);
+                break;
+            case "player":
+                repository = this.dataSource.getRepository(Player);
+                break;
+            case "npc":
+                repository = this.dataSource.getRepository(Npc);
+                break;
+            case "market":
+                repository = this.dataSource.getRepository(Market);
+                break;
+            case "city":
+                repository = this.dataSource.getRepository(City);
+                break;
+            case "building":
+                repository = this.dataSource.getRepository(Building);
+                break;
+            case "position":
+                repository = this.dataSource.getRepository(Position);
+                break;
+            case "offer":
+                repository = this.dataSource.getRepository(Offer);
+                break;
+            case "sale":
+                repository = this.dataSource.getRepository(Sale);
+                break;
+        }
+
+        return repository;        
+         
+    };
+
 }
