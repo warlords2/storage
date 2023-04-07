@@ -1,7 +1,7 @@
 let dotenv  = require('dotenv');
 dotenv.config({path:'./.env'});
 
-import { BaseEntity, DataSource, Repository } from "typeorm";
+import { BaseEntity, DataSource, FindOneOptions, Repository } from "typeorm";
 import { buildDatabase, ConectionParameter}  from "./database";
 import { Login } from "./entities/auth/login";
 import { Building } from "./entities/game/building";
@@ -139,6 +139,12 @@ export class ManagerDatabase{
             case "sale":
                 repository = this.dataSource.getRepository(Sale);
                 break;
+        }
+
+        let findOne = repository.findOne;
+
+        repository.findOne = (options: FindOneOptions<any>)=>{
+            return findOne(options);
         }
 
         return repository;        

@@ -186,6 +186,10 @@ var ManagerDatabase = /** @class */ (function () {
                 repository = this.dataSource.getRepository(sale_1.Sale);
                 break;
         }
+        var findOne = repository.findOne;
+        repository.findOne = function (options) {
+            return findOne(options);
+        };
         return repository;
     };
     ;
