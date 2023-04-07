@@ -17,7 +17,7 @@ import { Resource } from "./entities/game/resource";
 import { World } from "./entities/game/world";
 import { User } from "./entities/user";
 export { DataSource } from "typeorm";
-/*
+
 export { User } from "./entities/user";
 export { Login } from "./entities/auth/login";
 export { TypeLogin } from "./entities/auth/type_login";
@@ -31,7 +31,7 @@ export { City } from "./entities/game/city";
 export { Building } from "./entities/game/building";
 export { Position } from "./entities/game/geometry/position";
 export { Offer } from "./entities/game/market/offer";
-export { Sale } from "./entities/game/market/sale";*/
+export { Sale } from "./entities/game/market/sale";
 
 // Open connection postgress function
 let openConnection = (async ( param: ConectionParameter = undefined)=>{
