@@ -1,7 +1,7 @@
 let dotenv  = require('dotenv');
 dotenv.config({path:'./.env'});
 
-import { DataSource, Repository } from "typeorm";
+import { BaseEntity, DataSource, Repository } from "typeorm";
 import { buildDatabase, ConectionParameter}  from "./database";
 import { Login } from "./entities/auth/login";
 import { Building } from "./entities/game/building";
@@ -94,7 +94,7 @@ export class ManagerDatabase{
         })
     }
     // Try resolve metadata typeorm
-    public getRepository( entity_class:any ): Repository<any>{
+    public getRepository( entity_class:any ): Repository<BaseEntity>{
         
         let type_class = entity_class.name.toLowerCase();
         let repository:Repository<any>;
