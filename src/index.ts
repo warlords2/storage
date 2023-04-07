@@ -94,60 +94,41 @@ export class ManagerDatabase{
         })
     }
     // Try resolve metadata typeorm
-    public getRepository( entity_class:any ): Repository<BaseEntity>{
+    public getRepository( entity_class:any ): Repository<any>{
         
         let type_class = entity_class.name.toLowerCase();
-        let repository:Repository<any>;
+        
+        let class_metadata:any;
 
         switch(type_class){
             case "user":
-                repository = this.dataSource.getRepository(User);
-                break;
+                return this.dataSource.getRepository(User);
             case "login":
-                repository = this.dataSource.getRepository(Login);
-                break;
+                return this.dataSource.getRepository(Login);
             case "world":
-                repository = this.dataSource.getRepository(World);
-                break;
+                return this.dataSource.getRepository(World);
             case "resource":
-                repository = this.dataSource.getRepository(Resource);
-                break;
+                return this.dataSource.getRepository(Resource);
             case "province":
-                repository = this.dataSource.getRepository(Province);
-                break;
+                return this.dataSource.getRepository(Province);
             case "player":
-                repository = this.dataSource.getRepository(Player);
-                break;
+                return this.dataSource.getRepository(Player);
             case "npc":
-                repository = this.dataSource.getRepository(Npc);
-                break;
+                return this.dataSource.getRepository(Npc);
             case "market":
-                repository = this.dataSource.getRepository(Market);
-                break;
+                return this.dataSource.getRepository(Market);
             case "city":
-                repository = this.dataSource.getRepository(City);
-                break;
+                return this.dataSource.getRepository(City);
             case "building":
-                repository = this.dataSource.getRepository(Building);
-                break;
+                return this.dataSource.getRepository(Building);
             case "position":
-                repository = this.dataSource.getRepository(Position);
-                break;
+                return this.dataSource.getRepository(Position);
             case "offer":
-                repository = this.dataSource.getRepository(Offer);
-                break;
+                return this.dataSource.getRepository(Offer);
             case "sale":
-                repository = this.dataSource.getRepository(Sale);
-                break;
+                return this.dataSource.getRepository(Sale);
         }
 
-        let findOne = repository.findOne;
-
-        repository.findOne = (options: FindOneOptions<any>)=>{
-            return findOne(options);
-        }
-
-        return repository;        
          
     };
 
