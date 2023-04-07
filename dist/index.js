@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ManagerDatabase = exports.Sale = exports.Offer = exports.Position = exports.Building = exports.City = exports.Market = exports.Npc = exports.Player = exports.Province = exports.Resource = exports.World = exports.TypeLogin = exports.Login = exports.User = exports.DataSource = void 0;
+exports.ManagerDatabase = exports.DataSource = void 0;
 var dotenv = require('dotenv');
 dotenv.config({ path: './.env' });
 var database_1 = require("./database");
@@ -55,34 +55,21 @@ var world_1 = require("./entities/game/world");
 var user_1 = require("./entities/user");
 var typeorm_1 = require("typeorm");
 Object.defineProperty(exports, "DataSource", { enumerable: true, get: function () { return typeorm_1.DataSource; } });
-var user_2 = require("./entities/user");
-Object.defineProperty(exports, "User", { enumerable: true, get: function () { return user_2.User; } });
-var login_2 = require("./entities/auth/login");
-Object.defineProperty(exports, "Login", { enumerable: true, get: function () { return login_2.Login; } });
-var type_login_1 = require("./entities/auth/type_login");
-Object.defineProperty(exports, "TypeLogin", { enumerable: true, get: function () { return type_login_1.TypeLogin; } });
-var world_2 = require("./entities/game/world");
-Object.defineProperty(exports, "World", { enumerable: true, get: function () { return world_2.World; } });
-var resource_2 = require("./entities/game/resource");
-Object.defineProperty(exports, "Resource", { enumerable: true, get: function () { return resource_2.Resource; } });
-var province_2 = require("./entities/game/province");
-Object.defineProperty(exports, "Province", { enumerable: true, get: function () { return province_2.Province; } });
-var player_2 = require("./entities/game/player");
-Object.defineProperty(exports, "Player", { enumerable: true, get: function () { return player_2.Player; } });
-var npc_2 = require("./entities/game/npc");
-Object.defineProperty(exports, "Npc", { enumerable: true, get: function () { return npc_2.Npc; } });
-var market_2 = require("./entities/game/market");
-Object.defineProperty(exports, "Market", { enumerable: true, get: function () { return market_2.Market; } });
-var city_2 = require("./entities/game/city");
-Object.defineProperty(exports, "City", { enumerable: true, get: function () { return city_2.City; } });
-var building_2 = require("./entities/game/building");
-Object.defineProperty(exports, "Building", { enumerable: true, get: function () { return building_2.Building; } });
-var position_2 = require("./entities/game/geometry/position");
-Object.defineProperty(exports, "Position", { enumerable: true, get: function () { return position_2.Position; } });
-var offer_2 = require("./entities/game/market/offer");
-Object.defineProperty(exports, "Offer", { enumerable: true, get: function () { return offer_2.Offer; } });
-var sale_2 = require("./entities/game/market/sale");
-Object.defineProperty(exports, "Sale", { enumerable: true, get: function () { return sale_2.Sale; } });
+/*
+export { User } from "./entities/user";
+export { Login } from "./entities/auth/login";
+export { TypeLogin } from "./entities/auth/type_login";
+export { World } from "./entities/game/world";
+export { Resource } from "./entities/game/resource";
+export { Province } from "./entities/game/province";
+export { Player } from "./entities/game/player";
+export { Npc } from "./entities/game/npc";
+export { Market } from "./entities/game/market";
+export { City } from "./entities/game/city";
+export { Building } from "./entities/game/building";
+export { Position } from "./entities/game/geometry/position";
+export { Offer } from "./entities/game/market/offer";
+export { Sale } from "./entities/game/market/sale";*/
 // Open connection postgress function
 var openConnection = (function (param) {
     if (param === void 0) { param = undefined; }
@@ -144,55 +131,56 @@ var ManagerDatabase = /** @class */ (function () {
     // Try resolve metadata typeorm
     ManagerDatabase.prototype.getRepository = function (entity_class) {
         var type_class = entity_class.name.toLowerCase();
-        var repository;
+        var class_metadata;
         switch (type_class) {
             case "user":
-                repository = this.dataSource.getRepository(user_1.User);
-                break;
+                return this.dataSource.getRepository(user_1.User);
             case "login":
-                repository = this.dataSource.getRepository(login_1.Login);
-                break;
+                return this.dataSource.getRepository(login_1.Login);
             case "world":
-                repository = this.dataSource.getRepository(world_1.World);
-                break;
+                return this.dataSource.getRepository(world_1.World);
             case "resource":
-                repository = this.dataSource.getRepository(resource_1.Resource);
-                break;
+                return this.dataSource.getRepository(resource_1.Resource);
             case "province":
-                repository = this.dataSource.getRepository(province_1.Province);
-                break;
+                return this.dataSource.getRepository(province_1.Province);
             case "player":
-                repository = this.dataSource.getRepository(player_1.Player);
-                break;
+                return this.dataSource.getRepository(player_1.Player);
             case "npc":
-                repository = this.dataSource.getRepository(npc_1.Npc);
-                break;
+                return this.dataSource.getRepository(npc_1.Npc);
             case "market":
-                repository = this.dataSource.getRepository(market_1.Market);
-                break;
+                return this.dataSource.getRepository(market_1.Market);
             case "city":
-                repository = this.dataSource.getRepository(city_1.City);
-                break;
+                return this.dataSource.getRepository(city_1.City);
             case "building":
-                repository = this.dataSource.getRepository(building_1.Building);
-                break;
+                return this.dataSource.getRepository(building_1.Building);
             case "position":
-                repository = this.dataSource.getRepository(position_1.Position);
-                break;
+                return this.dataSource.getRepository(position_1.Position);
             case "offer":
-                repository = this.dataSource.getRepository(offer_1.Offer);
-                break;
+                return this.dataSource.getRepository(offer_1.Offer);
             case "sale":
-                repository = this.dataSource.getRepository(sale_1.Sale);
-                break;
+                return this.dataSource.getRepository(sale_1.Sale);
         }
-        var findOne = repository.findOne;
-        repository.findOne = function (options) {
-            return findOne(options);
-        };
-        return repository;
     };
     ;
     return ManagerDatabase;
 }());
 exports.ManagerDatabase = ManagerDatabase;
+/*
+const database = new ManagerDatabase();
+database.getConnection().then(res=>{
+    console.log("INICIANDO TESTE")
+    //let reposi = database.getRepository(User);
+    //reposi.find();
+    let reposito = res.getRepository(User);
+    reposito.find();
+});*/
+/*
+openConnection().then((datasource: DataSource)=>{
+    console.log("INICIANDO TESTE")
+
+    let reposi = datasource.getRepository(User);
+    reposi.count();
+}).catch(err=>{
+    console.log("Error in connection :");
+    console.error(err);
+})*/ 

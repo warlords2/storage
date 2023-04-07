@@ -33,7 +33,9 @@ export let buildDatabase = async ( con: ConectionParameter = _con) => {
         port: con.port,
         username: con.username,
         password: con.password,
-        database: con.database
+        database: con.database,
+        entities: ['src/entities/**/**/*.ts'],
+        migrations: ['src/migrations/**/**/*.ts']
     });
 
     return await AppConnection.initialize();

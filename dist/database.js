@@ -64,7 +64,9 @@ var buildDatabase = function (con) {
                         port: con.port,
                         username: con.username,
                         password: con.password,
-                        database: con.database
+                        database: con.database,
+                        entities: ['src/entities/**/**/*.ts'],
+                        migrations: ['src/migrations/**/**/*.ts']
                     });
                     return [4 /*yield*/, AppConnection.initialize()];
                 case 1: return [2 /*return*/, _a.sent()];
