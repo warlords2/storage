@@ -136,7 +136,7 @@ export class ManagerDatabase{
 }
 
 
-/* Test
+/* Test 
 openConnection().then(async (datasource: DataSource)=>{
     console.log("INICIANDO TESTE")
 
@@ -147,4 +147,4 @@ openConnection().then(async (datasource: DataSource)=>{
     console.log("Error in connection :");
     console.error(err);
 })
-*/
+/**/

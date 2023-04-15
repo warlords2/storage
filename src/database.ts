@@ -1,5 +1,19 @@
 import { DataSource, DataSourceOptions } from "typeorm"
 
+import { Login } from "./entities/auth/login";
+import { Building } from "./entities/game/building";
+import { City } from "./entities/game/city";
+import { Position } from "./entities/game/geometry/position";
+import { Market } from "./entities/game/market";
+import { Offer } from "./entities/game/market/offer";
+import { Sale } from "./entities/game/market/sale";
+import { Npc } from "./entities/game/npc";
+import { Player } from "./entities/game/player";
+import { Province } from "./entities/game/province";
+import { Resource } from "./entities/game/resource";
+import { World } from "./entities/game/world";
+import { User } from "./entities/user";
+
 const HOST = process.env.HOST || "localhost";
 const PORT = Number(process.env.PORT || "5432");
 const USERNAME = process.env.USERNAME || "root";
@@ -33,7 +47,7 @@ export let buildDatabase = async ( con: ConectionParameter = _con) => {
         username: con.username,
         password: con.password,
         database: con.database,
-        entities: ['src/entities/**(.ts|.js)','src/entities/*/**(.ts|.js)', 'src/entities/*/*/**(.ts|.js)'],
+        entities: [Login, Building, City, Position, Market, Offer, Sale, Npc, Player, Province, Resource, World, User],
         migrations: ['src/migrations/**(.ts|.js)','src/migrations/*/**(.ts|.js)', 'src/migrations/*/*/**(.ts|.js)'],
         subscribers: ['src/subscribers/**(.ts|.js)','src/subscribers/*/**(.ts|.js)', 'src/subscribers/*/*/**(.ts|.js)']
     });
