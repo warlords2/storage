@@ -10,32 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Market = void 0;
-var typeorm_1 = require("typeorm");
-var offer_1 = require("./market/offer");
-var sale_1 = require("./market/sale");
-var Market = exports.Market = /** @class */ (function () {
-    function Market(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+const offer_1 = require("./market/offer");
+const sale_1 = require("./market/sale");
+let Market = class Market {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Market.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return offer_1.Offer; }, function (offer) { return offer.market; }),
-        __metadata("design:type", Array)
-    ], Market.prototype, "offers", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return sale_1.Sale; }, function (sale) { return sale.market; }),
-        __metadata("design:type", Array)
-    ], Market.prototype, "sales", void 0);
-    Market = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Market);
-    return Market;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Market.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => offer_1.Offer, (offer) => offer.market),
+    __metadata("design:type", Array)
+], Market.prototype, "offers", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => sale_1.Sale, (sale) => sale.market),
+    __metadata("design:type", Array)
+], Market.prototype, "sales", void 0);
+Market = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Market);
+exports.Market = Market;
+//# sourceMappingURL=market.js.map

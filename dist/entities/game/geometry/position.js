@@ -10,30 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Position = void 0;
-var typeorm_1 = require("typeorm");
-var Position = exports.Position = /** @class */ (function () {
-    function Position(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+let Position = class Position {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Position.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", Number)
-    ], Position.prototype, "x", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", Number)
-    ], Position.prototype, "y", void 0);
-    Position = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Position);
-    return Position;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Position.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Position.prototype, "x", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Position.prototype, "y", void 0);
+Position = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Position);
+exports.Position = Position;
+//# sourceMappingURL=position.js.map

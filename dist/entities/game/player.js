@@ -1,19 +1,4 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,41 +10,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Player = void 0;
-var user_1 = require("../user");
-var npc_1 = require("./npc");
-var world_1 = require("./world");
-var typeorm_1 = require("typeorm");
-var Player = exports.Player = /** @class */ (function (_super) {
-    __extends(Player, _super);
-    function Player(values) {
-        if (values === void 0) { values = {}; }
-        var _this = this;
+const user_1 = require("../user");
+const npc_1 = require("./npc");
+const world_1 = require("./world");
+const typeorm_1 = require("typeorm");
+let Player = class Player extends npc_1.Npc {
+    constructor(values = {}) {
+        super(values);
         if (Object.entries(values).length === 0 && values.constructor === Object) {
-            return _this;
+            return;
         }
-        _this = _super.call(this, values) || this;
-        Object.assign(_this, values);
-        return _this;
+        Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Player.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Player.prototype, "name", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return user_1.User; }, function (user) { return user.players; }),
-        __metadata("design:type", user_1.User)
-    ], Player.prototype, "user", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return world_1.World; }, function (world) { return world.players; }),
-        __metadata("design:type", world_1.World)
-    ], Player.prototype, "world", void 0);
-    Player = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Player);
-    return Player;
-}(npc_1.Npc));
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Player.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Player.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_1.User, (user) => user.players),
+    __metadata("design:type", user_1.User)
+], Player.prototype, "user", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => world_1.World, (world) => world.players),
+    __metadata("design:type", world_1.World)
+], Player.prototype, "world", void 0);
+Player = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Player);
+exports.Player = Player;
+//# sourceMappingURL=player.js.map

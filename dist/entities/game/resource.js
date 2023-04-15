@@ -10,36 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Resource = void 0;
-var common_1 = require("@warlords/common");
-var typeorm_1 = require("typeorm");
-var city_1 = require("./city");
-var Resource = exports.Resource = /** @class */ (function () {
-    function Resource(values) {
-        if (values === void 0) { values = {}; }
+const common_1 = require("@warlords/common");
+const typeorm_1 = require("typeorm");
+const city_1 = require("./city");
+let Resource = class Resource {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Resource.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", Number)
-    ], Resource.prototype, "amount", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Resource.prototype, "type", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return city_1.City; }, function (city) { return city.resources; }),
-        __metadata("design:type", city_1.City)
-    ], Resource.prototype, "city", void 0);
-    Resource = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Resource);
-    return Resource;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Resource.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Resource.prototype, "amount", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Resource.prototype, "type", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => city_1.City, (city) => city.resources),
+    __metadata("design:type", city_1.City)
+], Resource.prototype, "city", void 0);
+Resource = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Resource);
+exports.Resource = Resource;
+//# sourceMappingURL=resource.js.map

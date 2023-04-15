@@ -10,41 +10,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Npc = void 0;
-var common_1 = require("@warlords/common");
-var typeorm_1 = require("typeorm");
-var city_1 = require("./city");
-var world_1 = require("./world");
-var Npc = exports.Npc = /** @class */ (function () {
-    function Npc(values) {
-        if (values === void 0) { values = {}; }
+const common_1 = require("@warlords/common");
+const typeorm_1 = require("typeorm");
+const city_1 = require("./city");
+const world_1 = require("./world");
+let Npc = class Npc {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Npc.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Npc.prototype, "name", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Npc.prototype, "type", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return world_1.World; }, function (world) { return world.npcs; }),
-        __metadata("design:type", world_1.World)
-    ], Npc.prototype, "world", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return city_1.City; }, function (city) { return city.owner; }),
-        __metadata("design:type", city_1.City)
-    ], Npc.prototype, "cities", void 0);
-    Npc = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Npc);
-    return Npc;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Npc.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Npc.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Npc.prototype, "type", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => world_1.World, (world) => world.npcs),
+    __metadata("design:type", world_1.World)
+], Npc.prototype, "world", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => city_1.City, (city) => city.owner),
+    __metadata("design:type", city_1.City)
+], Npc.prototype, "cities", void 0);
+Npc = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Npc);
+exports.Npc = Npc;
+//# sourceMappingURL=npc.js.map

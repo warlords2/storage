@@ -10,30 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
-var typeorm_1 = require("typeorm");
-var login_1 = require("./auth/login");
-var player_1 = require("./game/player");
-var User = exports.User = /** @class */ (function () {
-    function User() {
-    }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], User.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], User.prototype, "name", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return login_1.Login; }, function (login) { return login.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "logins", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return player_1.Player; }, function (player) { return player.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "players", void 0);
-    User = __decorate([
-        (0, typeorm_1.Entity)()
-    ], User);
-    return User;
-}());
+const typeorm_1 = require("typeorm");
+const login_1 = require("./auth/login");
+const player_1 = require("./game/player");
+let User = class User {
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], User.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => login_1.Login, (login) => login.user),
+    __metadata("design:type", Array)
+], User.prototype, "logins", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => player_1.Player, (player) => player.user),
+    __metadata("design:type", Array)
+], User.prototype, "players", void 0);
+User = __decorate([
+    (0, typeorm_1.Entity)()
+], User);
+exports.User = User;
+//# sourceMappingURL=user.js.map

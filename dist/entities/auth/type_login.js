@@ -6,3 +6,4 @@ var TypeLogin;
     TypeLogin["NONCE"] = "nonce";
     TypeLogin["MAIL"] = "mail";
 })(TypeLogin = exports.TypeLogin || (exports.TypeLogin = {}));
+//# sourceMappingURL=type_login.js.map

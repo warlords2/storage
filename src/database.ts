@@ -1,6 +1,5 @@
 import { DataSource, DataSourceOptions } from "typeorm"
 
-
 const HOST = process.env.HOST || "localhost";
 const PORT = Number(process.env.PORT || "5432");
 const USERNAME = process.env.USERNAME || "root";
@@ -34,8 +33,9 @@ export let buildDatabase = async ( con: ConectionParameter = _con) => {
         username: con.username,
         password: con.password,
         database: con.database,
-        entities: ['src/entities/**/**/*.ts'],
-        migrations: ['src/migrations/**/**/*.ts']
+        entities: ['src/entities/**(.ts|.js)','src/entities/*/**(.ts|.js)', 'src/entities/*/*/**(.ts|.js)'],
+        migrations: ['src/migrations/**(.ts|.js)','src/migrations/*/**(.ts|.js)', 'src/migrations/*/*/**(.ts|.js)'],
+        subscribers: ['src/subscribers/**(.ts|.js)','src/subscribers/*/**(.ts|.js)', 'src/subscribers/*/*/**(.ts|.js)']
     });
 
     return await AppConnection.initialize();

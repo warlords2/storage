@@ -10,27 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Sale = void 0;
-var typeorm_1 = require("typeorm");
-var market_1 = require("../market");
-var Sale = exports.Sale = /** @class */ (function () {
-    function Sale(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+const market_1 = require("../market");
+let Sale = class Sale {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Sale.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return market_1.Market; }, function (market) { return market.offers; }),
-        __metadata("design:type", market_1.Market)
-    ], Sale.prototype, "market", void 0);
-    Sale = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Sale);
-    return Sale;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Sale.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => market_1.Market, (market) => market.offers),
+    __metadata("design:type", market_1.Market)
+], Sale.prototype, "market", void 0);
+Sale = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Sale);
+exports.Sale = Sale;
+//# sourceMappingURL=sale.js.map

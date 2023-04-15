@@ -20,11 +20,11 @@ export class Player extends Npc implements IPlayer{
     world: World;
 
     constructor(values: any = {}) {
-        if (Object.entries(values).length === 0 && values.constructor === Object) {
+	super(values);        
+	if (Object.entries(values).length === 0 && values.constructor === Object) {
           return;
         }
-        super(values);
-        Object.assign(this, values);
+	Object.assign(this, values);
     }
 
 }

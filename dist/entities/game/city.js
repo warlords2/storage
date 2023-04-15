@@ -10,52 +10,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.City = void 0;
-var typeorm_1 = require("typeorm");
-var building_1 = require("./building");
-var position_1 = require("./geometry/position");
-var npc_1 = require("./npc");
-var province_1 = require("./province");
-var resource_1 = require("./resource");
-var City = exports.City = /** @class */ (function () {
-    function City(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+const building_1 = require("./building");
+const position_1 = require("./geometry/position");
+const npc_1 = require("./npc");
+const province_1 = require("./province");
+const resource_1 = require("./resource");
+let City = class City {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], City.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], City.prototype, "name", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return npc_1.Npc; }, function (npc) { return npc.cities; }),
-        __metadata("design:type", npc_1.Npc)
-    ], City.prototype, "owner", void 0);
-    __decorate([
-        (0, typeorm_1.OneToOne)(function () { return position_1.Position; }),
-        (0, typeorm_1.JoinColumn)(),
-        __metadata("design:type", position_1.Position)
-    ], City.prototype, "position", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return building_1.Building; }, function (building) { return building.city; }),
-        __metadata("design:type", Array)
-    ], City.prototype, "buildings", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return resource_1.Resource; }, function (resource) { return resource.city; }),
-        __metadata("design:type", Array)
-    ], City.prototype, "resources", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return province_1.Province; }, function (province) { return province.cities; }),
-        __metadata("design:type", province_1.Province)
-    ], City.prototype, "province", void 0);
-    City = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], City);
-    return City;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], City.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], City.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => npc_1.Npc, (npc) => npc.cities),
+    __metadata("design:type", npc_1.Npc)
+], City.prototype, "owner", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => position_1.Position),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", position_1.Position)
+], City.prototype, "position", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => building_1.Building, (building) => building.city),
+    __metadata("design:type", Array)
+], City.prototype, "buildings", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => resource_1.Resource, (resource) => resource.city),
+    __metadata("design:type", Array)
+], City.prototype, "resources", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => province_1.Province, (province) => province.cities),
+    __metadata("design:type", province_1.Province)
+], City.prototype, "province", void 0);
+City = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], City);
+exports.City = City;
+//# sourceMappingURL=city.js.map

@@ -10,42 +10,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Province = void 0;
-var typeorm_1 = require("typeorm");
-var city_1 = require("./city");
-var position_1 = require("./geometry/position");
-var world_1 = require("./world");
-var Province = exports.Province = /** @class */ (function () {
-    function Province(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+const city_1 = require("./city");
+const position_1 = require("./geometry/position");
+const world_1 = require("./world");
+let Province = class Province {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Province.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Province.prototype, "name", void 0);
-    __decorate([
-        (0, typeorm_1.OneToOne)(function () { return position_1.Position; }),
-        (0, typeorm_1.JoinColumn)(),
-        __metadata("design:type", position_1.Position)
-    ], Province.prototype, "position", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return world_1.World; }, function (world) { return world.provinces; }),
-        __metadata("design:type", world_1.World)
-    ], Province.prototype, "world", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return city_1.City; }, function (city) { return city.province; }),
-        __metadata("design:type", Array)
-    ], Province.prototype, "cities", void 0);
-    Province = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Province);
-    return Province;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Province.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Province.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => position_1.Position),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", position_1.Position)
+], Province.prototype, "position", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => world_1.World, (world) => world.provinces),
+    __metadata("design:type", world_1.World)
+], Province.prototype, "world", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => city_1.City, (city) => city.province),
+    __metadata("design:type", Array)
+], Province.prototype, "cities", void 0);
+Province = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Province);
+exports.Province = Province;
+//# sourceMappingURL=province.js.map

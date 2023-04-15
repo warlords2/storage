@@ -10,47 +10,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.World = void 0;
-var typeorm_1 = require("typeorm");
-var market_1 = require("./market");
-var npc_1 = require("./npc");
-var player_1 = require("./player");
-var province_1 = require("./province");
-var World = exports.World = /** @class */ (function () {
-    function World(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+const market_1 = require("./market");
+const npc_1 = require("./npc");
+const player_1 = require("./player");
+const province_1 = require("./province");
+let World = class World {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], World.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], World.prototype, "name", void 0);
-    __decorate([
-        (0, typeorm_1.OneToOne)(function () { return market_1.Market; }),
-        (0, typeorm_1.JoinColumn)(),
-        __metadata("design:type", market_1.Market)
-    ], World.prototype, "market", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return province_1.Province; }, function (province) { return province.world; }),
-        __metadata("design:type", Array)
-    ], World.prototype, "provinces", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return npc_1.Npc; }, function (npc) { return npc.world; }),
-        __metadata("design:type", Array)
-    ], World.prototype, "npcs", void 0);
-    __decorate([
-        (0, typeorm_1.OneToMany)(function () { return player_1.Player; }, function (player) { return player.world; }),
-        __metadata("design:type", Array)
-    ], World.prototype, "players", void 0);
-    World = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], World);
-    return World;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], World.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], World.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => market_1.Market),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", market_1.Market)
+], World.prototype, "market", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => province_1.Province, (province) => province.world),
+    __metadata("design:type", Array)
+], World.prototype, "provinces", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => npc_1.Npc, (npc) => npc.world),
+    __metadata("design:type", Array)
+], World.prototype, "npcs", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => player_1.Player, (player) => player.world),
+    __metadata("design:type", Array)
+], World.prototype, "players", void 0);
+World = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], World);
+exports.World = World;
+//# sourceMappingURL=world.js.map

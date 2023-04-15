@@ -10,33 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Building = void 0;
-var typeorm_1 = require("typeorm");
-var city_1 = require("./city");
-var position_1 = require("./geometry/position");
-var Building = exports.Building = /** @class */ (function () {
-    function Building(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+const city_1 = require("./city");
+const position_1 = require("./geometry/position");
+let Building = class Building {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Building.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return city_1.City; }, function (city) { return city.buildings; }),
-        __metadata("design:type", city_1.City)
-    ], Building.prototype, "city", void 0);
-    __decorate([
-        (0, typeorm_1.OneToOne)(function () { return position_1.Position; }),
-        (0, typeorm_1.JoinColumn)(),
-        __metadata("design:type", position_1.Position)
-    ], Building.prototype, "position", void 0);
-    Building = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Building);
-    return Building;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Building.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => city_1.City, (city) => city.buildings),
+    __metadata("design:type", city_1.City)
+], Building.prototype, "city", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => position_1.Position),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", position_1.Position)
+], Building.prototype, "position", void 0);
+Building = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Building);
+exports.Building = Building;
+//# sourceMappingURL=building.js.map

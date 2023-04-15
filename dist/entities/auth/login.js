@@ -10,48 +10,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Login = void 0;
-var typeorm_1 = require("typeorm");
-var user_1 = require("../user");
-var type_login_1 = require("./type_login");
-var Login = exports.Login = /** @class */ (function () {
-    function Login(values) {
-        if (values === void 0) { values = {}; }
+const typeorm_1 = require("typeorm");
+const user_1 = require("../user");
+const type_login_1 = require("./type_login");
+let Login = class Login {
+    constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
             return;
         }
         Object.assign(this, values);
     }
-    __decorate([
-        (0, typeorm_1.PrimaryGeneratedColumn)(),
-        __metadata("design:type", Number)
-    ], Login.prototype, "id", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Login.prototype, "username", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Login.prototype, "password", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], Login.prototype, "nonce", void 0);
-    __decorate([
-        (0, typeorm_1.Column)({
-            type: "enum",
-            enum: type_login_1.TypeLogin,
-            default: type_login_1.TypeLogin.MAIL
-        }),
-        __metadata("design:type", String)
-    ], Login.prototype, "type", void 0);
-    __decorate([
-        (0, typeorm_1.ManyToOne)(function () { return user_1.User; }, function (user) { return user.logins; }),
-        __metadata("design:type", user_1.User)
-    ], Login.prototype, "user", void 0);
-    Login = __decorate([
-        (0, typeorm_1.Entity)(),
-        __metadata("design:paramtypes", [Object])
-    ], Login);
-    return Login;
-}());
+};
+__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
+    __metadata("design:type", Number)
+], Login.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Login.prototype, "username", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Login.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Login.prototype, "nonce", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        type: "enum",
+        enum: type_login_1.TypeLogin,
+        default: type_login_1.TypeLogin.MAIL
+    }),
+    __metadata("design:type", String)
+], Login.prototype, "type", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_1.User, (user) => user.logins),
+    __metadata("design:type", user_1.User)
+], Login.prototype, "user", void 0);
+Login = __decorate([
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
+], Login);
+exports.Login = Login;
+//# sourceMappingURL=login.js.map

@@ -93,6 +93,7 @@ export class ManagerDatabase{
             })
         })
     }
+/*
     // Try resolve metadata typeorm
     public getRepository( entity_class:any ): Repository<any>{
         
@@ -131,26 +132,19 @@ export class ManagerDatabase{
 
          
     };
-
+*/
 }
 
 
-/*
-const database = new ManagerDatabase();
-database.getConnection().then(res=>{
-    console.log("INICIANDO TESTE")
-    //let reposi = database.getRepository(User);
-    //reposi.find();
-    let reposito = res.getRepository(User);
-    reposito.find();
-});*/
-/*
-openConnection().then((datasource: DataSource)=>{
+/* Test
+openConnection().then(async (datasource: DataSource)=>{
     console.log("INICIANDO TESTE")
 
     let reposi = datasource.getRepository(User);
-    reposi.count();
+    console.log(await reposi.count());
+
 }).catch(err=>{
     console.log("Error in connection :");
     console.error(err);
-})*/
+})
+*/
