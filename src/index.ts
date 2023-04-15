@@ -93,7 +93,7 @@ export class ManagerDatabase{
             })
         })
     }
-/*
+
     // Try resolve metadata typeorm
     public getRepository( entity_class:any ): Repository<any>{
         
@@ -132,7 +132,7 @@ export class ManagerDatabase{
 
          
     };
-*/
+
 }
 
 
