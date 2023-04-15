@@ -5,11 +5,12 @@
         "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
-	"outDir": "./dist",
+	    "outDir": "./dist",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-	"resolveJsonModule": true,
-	"allowSyntheticDefaultImports": true,
+	    "resolveJsonModule": true,
+	    "allowSyntheticDefaultImports": true,
+        "declaration": true,
         "sourceMap": true
     },
     "exclude": [
