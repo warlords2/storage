@@ -96,7 +96,10 @@ export class ManagerDatabase{
 
     // Try resolve metadata typeorm
     public getRepository( entity_class:any ): Repository<any>{
+
+        return this.dataSource.getRepository(entity_class);
         
+        /*
         let type_class = entity_class.name.toLowerCase();
         
         let class_metadata:any;
@@ -128,7 +131,7 @@ export class ManagerDatabase{
                 return this.dataSource.getRepository(Offer);
             case "sale":
                 return this.dataSource.getRepository(Sale);
-        }
+        }*/
 
          
     };
