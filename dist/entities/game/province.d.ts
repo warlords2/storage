@@ -1,4 +1,4 @@
-import { Province as IProvince } from '@warlords/common';
+import { IProvince } from '@warlords/common';
 import { City } from './city';
 import { Position } from './geometry/position';
 import { World } from './world';

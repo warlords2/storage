@@ -1,4 +1,4 @@
-import { Province as IProvince } from '@warlords/common';
+import { IProvince } from '@warlords/common';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { City } from './city';
 import { Position } from './geometry/position';

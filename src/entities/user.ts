@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToMany } from "typeorm"
-import { User as IUser} from '@warlords/common/';
+import { IUser } from '@warlords/common/';
 import { Login } from "./auth/login";
 import { World } from "./game/world";
 import { Player } from "./game/player";

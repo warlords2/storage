@@ -1,6 +1,6 @@
 import { User } from "../user";
 import { Npc } from "./npc";
-import { Player as IPlayer } from '@warlords/common';
+import { IPlayer } from '@warlords/common';
 import { World } from "./world";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 

@@ -28,7 +28,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Login.prototype, "username", void 0);
+], Login.prototype, "identifier", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)

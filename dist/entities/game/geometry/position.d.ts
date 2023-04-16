@@ -1,4 +1,4 @@
-import { Position as IPosition } from '@warlords/common';
+import { IPosition } from '@warlords/common';
 export declare class Position implements IPosition {
     id: number;
     x: number;

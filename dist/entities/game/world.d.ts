@@ -1,4 +1,4 @@
-import { World as IWorld } from "@warlords/common";
+import { IWorld } from "@warlords/common";
 import { Market } from "./market";
 import { Npc } from "./npc";
 import { Player } from "./player";

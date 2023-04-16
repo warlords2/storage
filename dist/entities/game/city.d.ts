@@ -1,4 +1,4 @@
-import { City as ICity } from '@warlords/common';
+import { ICity } from '@warlords/common';
 import { Building } from './building';
 import { Position } from './geometry/position';
 import { Npc } from './npc';

@@ -1,4 +1,4 @@
-import { Market as IMarket } from "@warlords/common";
+import { IMarket } from "@warlords/common";
 import { Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Offer } from "./market/offer";
 import { Sale } from "./market/sale";

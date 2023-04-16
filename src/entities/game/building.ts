@@ -1,4 +1,4 @@
-import { BuildingType, Building as IBuilding } from "@warlords/common";
+import { BuildingType, IBuilding } from "@warlords/common";
 import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { City } from "./city";
 import { Position } from "./geometry/position";

@@ -1,4 +1,4 @@
-import { Npc as INpc, NpcType } from '@warlords/common';
+import { INpc, NpcType } from '@warlords/common';
 import { City } from './city';
 import { World } from './world';
 export declare class Npc implements INpc {

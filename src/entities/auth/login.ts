@@ -1,15 +1,16 @@
+import { ILogin } from "@warlords/common";
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne } from "typeorm"
 import { User } from "../user"
 import { TypeLogin } from "./type_login";
 
 @Entity()
-export class Login {
+export class Login implements ILogin{
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @Column()
-    username: string;
+    identifier: string;
 
     @Column()
     password: string;

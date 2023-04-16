@@ -1,4 +1,4 @@
-import { Position as IPosition } from '@warlords/common';
+import { IPosition } from '@warlords/common';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

@@ -1,4 +1,4 @@
-import { ResourceType, Resource as IResource } from "@warlords/common";
+import { ResourceType, IResource } from "@warlords/common";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { City } from "./city";
 

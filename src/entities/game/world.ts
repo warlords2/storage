@@ -1,4 +1,4 @@
-import { World as IWorld } from "@warlords/common";
+import { IWorld } from "@warlords/common";
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Market } from "./market";
 import { Npc } from "./npc";

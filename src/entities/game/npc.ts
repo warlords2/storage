@@ -1,4 +1,4 @@
-import { Npc as INpc, NpcType } from '@warlords/common';
+import { INpc, NpcType } from '@warlords/common';
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { City } from './city';
 import { World } from './world';

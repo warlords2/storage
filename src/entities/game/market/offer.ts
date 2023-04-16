@@ -1,4 +1,4 @@
-import { Offer as IOffer } from '@warlords/common';
+import { IOffer } from '@warlords/common';
 import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Market } from '../market';
 
