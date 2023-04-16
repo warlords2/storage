@@ -3,19 +3,7 @@ dotenv.config({path:'./.env'});
 
 import { BaseEntity, DataSource, FindOneOptions, Repository } from "typeorm";
 import { buildDatabase, ConectionParameter}  from "./database";
-import { Login } from "./entities/auth/login";
-import { Building } from "./entities/game/building";
-import { City } from "./entities/game/city";
-import { Position } from "./entities/game/geometry/position";
-import { Market } from "./entities/game/market";
-import { Offer } from "./entities/game/market/offer";
-import { Sale } from "./entities/game/market/sale";
-import { Npc } from "./entities/game/npc";
-import { Player } from "./entities/game/player";
-import { Province } from "./entities/game/province";
-import { Resource } from "./entities/game/resource";
-import { World } from "./entities/game/world";
-import { User } from "./entities/user";
+
 export { DataSource } from "typeorm";
 
 export { User } from "./entities/user";
