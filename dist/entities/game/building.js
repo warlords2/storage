@@ -22,8 +22,8 @@ let Building = class Building {
     }
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
+    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
 ], Building.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => city_1.City, (city) => city.buildings),

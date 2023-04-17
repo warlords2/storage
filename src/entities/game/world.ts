@@ -8,8 +8,8 @@ import { Province } from "./province";
 @Entity()
 export class World implements IWorld{
     
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     name: string;

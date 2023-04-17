@@ -3,7 +3,7 @@ import { Npc } from "./npc";
 import { IPlayer } from '@warlords/common';
 import { World } from "./world";
 export declare class Player extends Npc implements IPlayer {
-    id: number;
+    id: string;
     name: string;
     user: User;
     world: World;

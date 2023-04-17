@@ -5,8 +5,8 @@ import { City } from "./city";
 @Entity()
 export class Resource implements IResource{
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     amount: number;

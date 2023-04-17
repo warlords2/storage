@@ -3,7 +3,7 @@ import { City } from './city';
 import { Position } from './geometry/position';
 import { World } from './world';
 export declare class Province implements IProvince {
-    id: number;
+    id: string;
     name: String;
     position: Position;
     world: World;

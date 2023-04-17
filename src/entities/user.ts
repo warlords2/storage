@@ -7,8 +7,8 @@ import { Player } from "./game/player";
 @Entity()
 export class User implements IUser{
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     name: string;

@@ -4,7 +4,7 @@ import { Npc } from "./npc";
 import { Player } from "./player";
 import { Province } from "./province";
 export declare class World implements IWorld {
-    id: number;
+    id: string;
     name: string;
     market: Market;
     provinces: Province[];

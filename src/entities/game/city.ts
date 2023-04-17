@@ -9,8 +9,8 @@ import { Resource } from './resource';
 @Entity()
 export class City implements ICity{
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     name: String;

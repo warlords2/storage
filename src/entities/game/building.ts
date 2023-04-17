@@ -6,8 +6,8 @@ import { Position } from "./geometry/position";
 @Entity()
 export class Building implements IBuilding {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     type: BuildingType;
     

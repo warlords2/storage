@@ -5,8 +5,8 @@ import { Market } from '../market';
 @Entity()
 export class Sale implements ISale{
     
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @ManyToOne(()=> Market, (market)=> market.offers)
     market: Market;

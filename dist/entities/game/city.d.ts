@@ -5,7 +5,7 @@ import { Npc } from './npc';
 import { Province } from './province';
 import { Resource } from './resource';
 export declare class City implements ICity {
-    id: number;
+    id: string;
     name: String;
     owner: Npc;
     position: Position;

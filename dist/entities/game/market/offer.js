@@ -21,8 +21,8 @@ let Offer = class Offer {
     }
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
+    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
+    __metadata("design:type", String)
 ], Offer.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => market_1.Market, (market) => market.offers),

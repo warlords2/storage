@@ -2,7 +2,7 @@ import { ILogin } from "@warlords/common";
 import { User } from "../user";
 import { TypeLogin } from "./type_login";
 export declare class Login implements ILogin {
-    id: number;
+    id: string;
     identifier: string;
     password: string;
     nonce: string;

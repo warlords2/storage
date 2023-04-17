@@ -6,8 +6,8 @@ import { Sale } from "./market/sale";
 @Entity()
 export class Market implements IMarket{
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @OneToMany(() => Offer, (offer) => offer.market )
     offers: Offer[];

@@ -6,8 +6,8 @@ import { TypeLogin } from "./type_login";
 @Entity()
 export class Login implements ILogin{
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     identifier: string;

@@ -6,8 +6,8 @@ import { World } from './world';
 @Entity()
 export class Npc implements INpc{
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
     
     @Column()
     name: String;
