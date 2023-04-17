@@ -127,7 +127,8 @@ export class ManagerDatabase{
 }
 
 
-/* Test
+/* Test 
+import { User } from "./entities/user";
 openConnection().then(async (datasource: DataSource)=>{
     console.log("INICIANDO TESTE")
 
