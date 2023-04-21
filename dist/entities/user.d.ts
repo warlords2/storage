@@ -6,4 +6,5 @@ export declare class User implements IUser {
     name: string;
     logins: Login[];
     players: Player[];
+    constructor(values?: any);
 }

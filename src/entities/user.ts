@@ -19,4 +19,10 @@ export class User implements IUser{
     @OneToMany(() => Player, (player)=> player.user)
     players: Player[];
 
+    constructor(values: any = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+          return;
+        }
+        Object.assign(this, values);
+    }
 }

@@ -14,6 +14,12 @@ const typeorm_1 = require("typeorm");
 const login_1 = require("./auth/login");
 const player_1 = require("./game/player");
 let User = class User {
+    constructor(values = {}) {
+        if (Object.entries(values).length === 0 && values.constructor === Object) {
+            return;
+        }
+        Object.assign(this, values);
+    }
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
@@ -32,7 +38,8 @@ __decorate([
     __metadata("design:type", Array)
 ], User.prototype, "players", void 0);
 User = __decorate([
-    (0, typeorm_1.Entity)()
+    (0, typeorm_1.Entity)(),
+    __metadata("design:paramtypes", [Object])
 ], User);
 exports.User = User;
 //# sourceMappingURL=user.js.map
