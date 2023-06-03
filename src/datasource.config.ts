@@ -1,11 +1,13 @@
 import { DataSource } from 'typeorm';
 
 
-const HOST = process.env.HOST || "localhost";
-const PORT = Number(process.env.PORT || "5432");
-const USERNAME = process.env.USERNAME || "root";
-const PASSWORD = process.env.PASSWORD || "123456";
-const DATABASE = process.env.DATABASE || "warlords";
+
+const HOST = process.env.POSTGRES_HOST || "localhost";
+const PORT = Number(process.env.POSTGRES_PORT || "5432");
+const USERNAME = process.env.POSTGRES_USER || "root";
+const PASSWORD = process.env.POSTGRES_PASSWORD || "123456";
+const DATABASE = process.env.POSTGRES_DB || "warlords";
+
 /*
 const HOST = "localhost";
 const PORT = Number("5432");
