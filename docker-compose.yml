@@ -5,11 +5,14 @@ services:
         restart: always
         env_file: .env
         networks:
+            - back_net
             - bridge_net
         volumes:
             - ./db/postgresql:/var/lib/postgresql
         ports:
             - "5432:5432"
 networks:
+    back_net:
+        external: false
     bridge_net:
         driver: bridge
