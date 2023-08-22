@@ -15,7 +15,9 @@ export class Login implements ILogin{
     @Column()
     password: string;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     nonce: string;
 
     @Column({
