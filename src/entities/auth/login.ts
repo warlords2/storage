@@ -27,6 +27,7 @@ export class Login implements ILogin{
     })
     type: TypeLogin;
 
+    @Column()
     @ManyToOne(type => User, (user)=> user.logins)
     user: User;
 
