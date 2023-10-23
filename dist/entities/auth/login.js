@@ -49,6 +49,9 @@ __decorate([
 ], Login.prototype, "type", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Login.prototype, "userId", void 0);
+__decorate([
     (0, typeorm_1.ManyToOne)(type => user_1.User, (user) => user.logins),
     __metadata("design:type", user_1.User)
 ], Login.prototype, "user", void 0);

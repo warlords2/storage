@@ -7,6 +7,7 @@ export declare class Login implements ILogin {
     password: string;
     nonce: string;
     type: TypeLogin;
+    userId: string;
     user: User;
     constructor(values?: any);
 }

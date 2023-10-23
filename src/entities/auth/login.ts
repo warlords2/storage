@@ -28,6 +28,8 @@ export class Login implements ILogin{
     type: TypeLogin;
 
     @Column()
+    userId: string;
+
     @ManyToOne(type => User, (user)=> user.logins)
     user: User;
 
