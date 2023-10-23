@@ -27,7 +27,7 @@ export class Login implements ILogin{
     })
     type: TypeLogin;
 
-    @ManyToOne(()=> User, (user)=> user.logins)
+    @ManyToOne(type => User, (user)=> user.logins)
     user: User;
 
     constructor(values: any = {}) {
