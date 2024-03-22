@@ -20,7 +20,6 @@
     "migrate:generate": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:generate -n",
     "migrate:run": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:run",
     "migrate:revert": "./node_modules/.bin/ts-node ./node_modules/typeorm/cli.js migration:revert",
-
     "_schema:sync": "WARNNING!!! shema:sync clear data",
     "schema:sync": "npx typeorm-ts-node-esm schema:sync -d ./src/datasource.config.ts",
     "schema:drop": "npx typeorm-ts-node-esm schema:drop -d ./src/datasource.config.ts",

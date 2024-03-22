@@ -3,6 +3,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGene
 import { City } from './city';
 import { Position } from './geometry/position';
 import { World } from './world';
+import { Size } from './geometry/size';
 
 @Entity()
 export class Province implements IProvince{
@@ -20,6 +21,10 @@ export class Province implements IProvince{
     @ManyToOne(()=> World, (world)=> world.provinces)
     world: World;
     
+    @OneToOne(() => Size)
+    @JoinColumn()
+    size: Size;
+
     @OneToMany(()=> City, (city)=> city.province)
     cities: City[];
 

@@ -5,6 +5,7 @@ import { Position } from './geometry/position';
 import { Npc } from './npc';
 import { Province } from './province';
 import { Resource } from './resource';
+import { Size } from './geometry/size';
 
 @Entity()
 export class City implements ICity{
@@ -21,6 +22,10 @@ export class City implements ICity{
     @OneToOne(() => Position)
     @JoinColumn()
     position: Position;
+
+    @OneToOne(() => Size)
+    @JoinColumn()
+    size: Size;
 
     @OneToMany(()=> Building, (building) => building.city)
     buildings: Building[];

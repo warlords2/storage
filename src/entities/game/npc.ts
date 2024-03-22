@@ -19,7 +19,7 @@ export class Npc implements INpc{
     world: World;
 
     @OneToMany(()=> City, (city)=> city.owner)
-    cities: City;
+    cities: City[];
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

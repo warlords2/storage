@@ -4,6 +4,8 @@ import { Market } from "./market";
 import { Npc } from "./npc";
 import { Player } from "./player";
 import { Province } from "./province";
+import { BuildingType } from "./buildingType";
+import { UnitType } from "./unitType";
 
 @Entity()
 export class World implements IWorld{
@@ -20,6 +22,12 @@ export class World implements IWorld{
 
     @OneToMany(() => Province, (province)=> province.world)
     provinces: Province[];
+
+    @OneToMany(() => BuildingType, (buildingType)=> buildingType.world)
+    buildingTypes: BuildingType[];
+
+    @OneToMany(()=> UnitType, (unitType)=> unitType.world)
+    unitTypes: UnitType[];
 
     @OneToMany(() => Npc, (npc)=> npc.world)
     npcs: Npc[];

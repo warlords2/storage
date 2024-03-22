@@ -1,7 +1,8 @@
-import { BuildingType, IBuilding } from "@warlords/common";
-import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { IBuilding } from "@warlords/common";
+import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Column } from "typeorm";
 import { City } from "./city";
 import { Position } from "./geometry/position";
+import { BuildingType } from "./buildingType";
 
 @Entity()
 export class Building implements IBuilding {
@@ -9,8 +10,10 @@ export class Building implements IBuilding {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
+    @ManyToOne(() => BuildingType)
+    @JoinColumn()
     type: BuildingType;
-    
+
     @ManyToOne(()=> City, (city)=> city.buildings)
     city: City;
 
