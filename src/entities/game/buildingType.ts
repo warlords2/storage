@@ -5,39 +5,101 @@ import { Size } from "./geometry/size";
 import { UnitType } from "./unitType";
 import { Cost } from "./cost";
 import { World } from "./world";
+import { BuildingConfig } from "./configure/buildingConfig";
 
 @Entity()
 export class BuildingType implements IBuildingType {
 
     @PrimaryGeneratedColumn('uuid')
     id: string;
+
     @Column()
     name: string;
+
     @Column()
-    max_level: number;
+    hasMaxLevel: boolean;
+
+    @Column()
+    maxLevel: number;
+
+    @Column()
+    multiplierUnitCost: number;
+
+    @Column()
+    multiplierUnitTime: number;
+
+    @Column()
+    storeAmount: number;
+
+    @Column()
+    multiplierStorage: number;
+
+    @Column()
+    hasMarket: boolean;
+
+    @Column()
+    initialMaxOffers: number;
+
+    @Column()
+    multiplierMaxOffers: number;
+
+    @Column()
+    receiveDamage: boolean;
+
+    @Column()
+    txRevive: number;
+
+    @Column()
+    damage: number;
+
+    @Column()
+    health: number;
+
+    @Column()
+    agility: number;
+
+    @Column()
+    range: number;
+
+    @Column()
+    multiplierDamage: number;
+
+    @Column()
+    multiplierHealth: number;
+
+    @Column()
+    multiplierAgility: number;
+
+    @Column()
+    multiplierRange: number;
+
+    @Column()
+    multiplierResources: number;
+
+    @Column()
+    multiplierCost: number;
+
     @Column()
     multiplier: number;
-    @Column()
-    multiplier_cost: number;
+
     @Column()
     initial: number;
+
     @Column()
     hasUnitGenerate: boolean;
-    @Column()
-    multiplier_unit_cost: number;
-    @Column()
-    multiplier_unit_time: number;
+    
     @Column()
     hasStore: boolean;
-    @Column()
-    multiplier_storage: number;
-
+    
     @ManyToOne(()=> World, (world)=> world.buildingTypes)
     world: World;
 
     @OneToOne(() => Size)
     @JoinColumn()
     size: Size;
+
+    @ManyToOne(() => BuildingConfig, (buildingConfig) => buildingConfig.buildingsType)
+    buildingConfig: BuildingConfig;
 
     @ManyToMany(() => UnitType)
     @JoinTable()

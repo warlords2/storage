@@ -10,7 +10,7 @@ export class Cost implements ICost{
     
     @ManyToOne(() => ResourceType)
     @JoinColumn()
-    resource: ResourceType;
+    resourceType: ResourceType;
 
     @Column()
     amount: number;

@@ -1,7 +1,7 @@
 import { ILogin } from "@warlords/common";
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne } from "typeorm"
 import { User } from "../user"
-import { TypeLogin } from "./type_login";
+import { LoginType } from "./loginType";
 
 @Entity()
 export class Login implements ILogin{
@@ -22,10 +22,10 @@ export class Login implements ILogin{
 
     @Column({
         type: "enum",
-        enum: TypeLogin,
-        default: TypeLogin.MAIL
+        enum: LoginType,
+        default: LoginType.MAIL
     })
-    type: TypeLogin;
+    loginType: LoginType;
 
     @Column()
     userId: string;

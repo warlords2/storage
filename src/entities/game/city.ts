@@ -1,4 +1,4 @@
-import { ICity } from '@warlords/common';
+import { ICity, INpc } from '@warlords/common';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Building } from './building';
 import { Position } from './geometry/position';
@@ -6,6 +6,8 @@ import { Npc } from './npc';
 import { Province } from './province';
 import { Resource } from './resource';
 import { Size } from './geometry/size';
+import { World } from './world';
+import { Unit } from './unit';
 
 @Entity()
 export class City implements ICity{
@@ -15,9 +17,12 @@ export class City implements ICity{
 
     @Column()
     name: String;
-
+    
+    @Column()
+    stability: number;
+    
     @ManyToOne(()=> Npc, (npc)=> npc.cities)
-    owner: Npc;
+    owner: INpc;
 
     @OneToOne(() => Position)
     @JoinColumn()
@@ -32,6 +37,12 @@ export class City implements ICity{
 
     @OneToMany(()=> Resource, (resource) => resource.city)
     resources: Resource[];
+
+    @OneToMany(()=> Unit, (unit) => unit.city)
+    units: Unit[];
+
+    @ManyToOne(() => World, (world) => world.cities)
+    world: World;
 
     @ManyToOne(()=> Province, (province)=> province.cities)
     province: Province;

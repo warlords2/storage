@@ -8,7 +8,7 @@ export { DataSource } from "typeorm";
 
 export { User } from "./entities/user";
 export { Login } from "./entities/auth/login";
-export { TypeLogin } from "./entities/auth/type_login";
+export { LoginType } from "./entities/auth/loginType";
 export { World } from "./entities/game/world";
 export { Resource } from "./entities/game/resource";
 export { Province } from "./entities/game/province";
@@ -20,6 +20,18 @@ export { Building } from "./entities/game/building";
 export { Position } from "./entities/game/geometry/position";
 export { Offer } from "./entities/game/market/offer";
 export { Sale } from "./entities/game/market/sale";
+
+export { WorldConfig } from './entities/game/configure/worldConfig';
+export { BuildingConfig } from './entities/game/configure/buildingConfig';
+export { CityConfig } from './entities/game/configure/cityConfig';
+export { MarketConfig } from './entities/game/configure/marketConfig';
+export { NPCConfig } from './entities/game/configure/npcConfig';
+export { NPCTypeConfig } from './entities/game/configure/npcTypeConfig';
+export { PlayerConfig } from './entities/game/configure/playerConfig';
+export { ProvinceConfig } from './entities/game/configure/provinceConfig';
+export { ResourceConfig } from './entities/game/configure/resourceConfig';
+export { UnitConfig } from './entities/game/configure/unitConfig';
+
 
 // Open connection postgress function
 let openConnection = (async ( param: ConectionParameter = undefined)=>{

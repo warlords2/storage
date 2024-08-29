@@ -10,9 +10,15 @@ export class Building implements IBuilding {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
+    // @todo criar estutura de produção, eventos de produção de tropa
+    // @todo criar estrutura de tempo de contrução e demolição
+    
+    @Column()
+    level: number;
+
     @ManyToOne(() => BuildingType)
     @JoinColumn()
-    type: BuildingType;
+    buildingType: BuildingType;
 
     @ManyToOne(()=> City, (city)=> city.buildings)
     city: City;

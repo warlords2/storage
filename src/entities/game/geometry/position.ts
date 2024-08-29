@@ -6,11 +6,12 @@ export class Position implements IPosition{
     
     @PrimaryGeneratedColumn('uuid')
     id: string;
-
     @Column()
     x: number;
     @Column()
     y: number;
+    @Column()
+    z: number;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

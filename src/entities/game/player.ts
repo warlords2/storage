@@ -1,17 +1,24 @@
 import { User } from "../user";
 import { Npc } from "./npc";
-import { IPlayer, NpcType } from '@warlords/common';
+import { INpc, IPlayer, NpcType} from '@warlords/common';
 import { World } from "./world";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Player extends Npc implements IPlayer{
+export class Player extends Npc implements IPlayer, INpc{
 
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
     name: string;
+
+    @Column({
+        type: "enum",
+        enum: NpcType,
+        default: NpcType.Player
+    })
+    npcType: NpcType;
 
     @ManyToOne(()=> User, (user)=> user.players)
     user: User;

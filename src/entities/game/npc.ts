@@ -12,8 +12,12 @@ export class Npc implements INpc{
     @Column()
     name: String;
 
-    @Column()
-    type: NpcType;
+    @Column({
+      type: "enum",
+      enum: NpcType,
+      default: NpcType.Ai
+    })
+    npcType: NpcType;
 
     @ManyToOne(()=> World, (world)=> world.npcs)
     world: World;
