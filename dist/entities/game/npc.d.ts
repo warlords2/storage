@@ -4,8 +4,8 @@ import { World } from './world';
 export declare class Npc implements INpc {
     id: string;
     name: String;
-    type: NpcType;
+    npcType: NpcType;
     world: World;
-    cities: City;
+    cities: City[];
     constructor(values?: any);
 }

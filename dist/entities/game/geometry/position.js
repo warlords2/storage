@@ -31,6 +31,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], Position.prototype, "y", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Position.prototype, "z", void 0);
 Position = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

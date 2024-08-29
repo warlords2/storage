@@ -15,6 +15,10 @@ const market_1 = require("./market");
 const npc_1 = require("./npc");
 const player_1 = require("./player");
 const province_1 = require("./province");
+const buildingType_1 = require("./buildingType");
+const unitType_1 = require("./unitType");
+const worldConfig_1 = require("./configure/worldConfig");
+const city_1 = require("./city");
 let World = class World {
     constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
@@ -32,20 +36,43 @@ __decorate([
     __metadata("design:type", String)
 ], World.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.OneToOne)(() => market_1.Market),
+    (0, typeorm_1.OneToOne)(() => market_1.Market, (market) => market.world),
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", market_1.Market)
 ], World.prototype, "market", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => province_1.Province, (province) => province.world),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", Array)
 ], World.prototype, "provinces", void 0);
 __decorate([
+    (0, typeorm_1.OneToMany)(() => city_1.City, (city) => city.world),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", Array)
+], World.prototype, "cities", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => buildingType_1.BuildingType, (buildingType) => buildingType.world),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", Array)
+], World.prototype, "buildingTypes", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => unitType_1.UnitType, (unitType) => unitType.world),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", Array)
+], World.prototype, "unitTypes", void 0);
+__decorate([
     (0, typeorm_1.OneToMany)(() => npc_1.Npc, (npc) => npc.world),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", Array)
 ], World.prototype, "npcs", void 0);
 __decorate([
+    (0, typeorm_1.OneToOne)(() => worldConfig_1.WorldConfig, (worldConfig) => worldConfig.world),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", worldConfig_1.WorldConfig)
+], World.prototype, "worldConfig", void 0);
+__decorate([
     (0, typeorm_1.OneToMany)(() => player_1.Player, (player) => player.world),
+    (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", Array)
 ], World.prototype, "players", void 0);
 World = __decorate([

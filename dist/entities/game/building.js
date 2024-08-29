@@ -13,6 +13,7 @@ exports.Building = void 0;
 const typeorm_1 = require("typeorm");
 const city_1 = require("./city");
 const position_1 = require("./geometry/position");
+const buildingType_1 = require("./buildingType");
 let Building = class Building {
     constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
@@ -25,6 +26,15 @@ __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
 ], Building.prototype, "id", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], Building.prototype, "level", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => buildingType_1.BuildingType),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", buildingType_1.BuildingType)
+], Building.prototype, "buildingType", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => city_1.City, (city) => city.buildings),
     __metadata("design:type", city_1.City)

@@ -31,16 +31,20 @@ __decorate([
     __metadata("design:type", String)
 ], Npc.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({
+        type: "enum",
+        enum: common_1.NpcType,
+        default: common_1.NpcType.Ai
+    }),
     __metadata("design:type", String)
-], Npc.prototype, "type", void 0);
+], Npc.prototype, "npcType", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => world_1.World, (world) => world.npcs),
     __metadata("design:type", world_1.World)
 ], Npc.prototype, "world", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => city_1.City, (city) => city.owner),
-    __metadata("design:type", city_1.City)
+    __metadata("design:type", Array)
 ], Npc.prototype, "cities", void 0);
 Npc = __decorate([
     (0, typeorm_1.Entity)(),

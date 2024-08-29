@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Player = void 0;
 const user_1 = require("../user");
 const npc_1 = require("./npc");
+const common_1 = require("@warlords/common");
 const world_1 = require("./world");
 const typeorm_1 = require("typeorm");
 let Player = class Player extends npc_1.Npc {
@@ -31,6 +32,14 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Player.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        type: "enum",
+        enum: common_1.NpcType,
+        default: common_1.NpcType.Player
+    }),
+    __metadata("design:type", String)
+], Player.prototype, "npcType", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => user_1.User, (user) => user.players),
     __metadata("design:type", user_1.User)

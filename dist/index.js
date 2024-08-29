@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ManagerDatabase = exports.Sale = exports.Offer = exports.Position = exports.Building = exports.City = exports.Market = exports.Npc = exports.Player = exports.Province = exports.Resource = exports.World = exports.TypeLogin = exports.Login = exports.User = exports.DataSource = void 0;
+exports.ManagerDatabase = exports.UnitConfig = exports.ResourceConfig = exports.ProvinceConfig = exports.PlayerConfig = exports.NPCTypeConfig = exports.NPCConfig = exports.MarketConfig = exports.CityConfig = exports.BuildingConfig = exports.WorldConfig = exports.Sale = exports.Offer = exports.Position = exports.Building = exports.City = exports.Market = exports.Npc = exports.Player = exports.Province = exports.Resource = exports.World = exports.LoginType = exports.Login = exports.User = exports.DataSource = void 0;
 let dotenv = require('dotenv');
 dotenv.config({ path: './.env' });
 const database_1 = require("./database");
@@ -19,8 +19,8 @@ var user_1 = require("./entities/user");
 Object.defineProperty(exports, "User", { enumerable: true, get: function () { return user_1.User; } });
 var login_1 = require("./entities/auth/login");
 Object.defineProperty(exports, "Login", { enumerable: true, get: function () { return login_1.Login; } });
-var type_login_1 = require("./entities/auth/type_login");
-Object.defineProperty(exports, "TypeLogin", { enumerable: true, get: function () { return type_login_1.TypeLogin; } });
+var loginType_1 = require("./entities/auth/loginType");
+Object.defineProperty(exports, "LoginType", { enumerable: true, get: function () { return loginType_1.LoginType; } });
 var world_1 = require("./entities/game/world");
 Object.defineProperty(exports, "World", { enumerable: true, get: function () { return world_1.World; } });
 var resource_1 = require("./entities/game/resource");
@@ -43,6 +43,26 @@ var offer_1 = require("./entities/game/market/offer");
 Object.defineProperty(exports, "Offer", { enumerable: true, get: function () { return offer_1.Offer; } });
 var sale_1 = require("./entities/game/market/sale");
 Object.defineProperty(exports, "Sale", { enumerable: true, get: function () { return sale_1.Sale; } });
+var worldConfig_1 = require("./entities/game/configure/worldConfig");
+Object.defineProperty(exports, "WorldConfig", { enumerable: true, get: function () { return worldConfig_1.WorldConfig; } });
+var buildingConfig_1 = require("./entities/game/configure/buildingConfig");
+Object.defineProperty(exports, "BuildingConfig", { enumerable: true, get: function () { return buildingConfig_1.BuildingConfig; } });
+var cityConfig_1 = require("./entities/game/configure/cityConfig");
+Object.defineProperty(exports, "CityConfig", { enumerable: true, get: function () { return cityConfig_1.CityConfig; } });
+var marketConfig_1 = require("./entities/game/configure/marketConfig");
+Object.defineProperty(exports, "MarketConfig", { enumerable: true, get: function () { return marketConfig_1.MarketConfig; } });
+var npcConfig_1 = require("./entities/game/configure/npcConfig");
+Object.defineProperty(exports, "NPCConfig", { enumerable: true, get: function () { return npcConfig_1.NPCConfig; } });
+var npcTypeConfig_1 = require("./entities/game/configure/npcTypeConfig");
+Object.defineProperty(exports, "NPCTypeConfig", { enumerable: true, get: function () { return npcTypeConfig_1.NPCTypeConfig; } });
+var playerConfig_1 = require("./entities/game/configure/playerConfig");
+Object.defineProperty(exports, "PlayerConfig", { enumerable: true, get: function () { return playerConfig_1.PlayerConfig; } });
+var provinceConfig_1 = require("./entities/game/configure/provinceConfig");
+Object.defineProperty(exports, "ProvinceConfig", { enumerable: true, get: function () { return provinceConfig_1.ProvinceConfig; } });
+var resourceConfig_1 = require("./entities/game/configure/resourceConfig");
+Object.defineProperty(exports, "ResourceConfig", { enumerable: true, get: function () { return resourceConfig_1.ResourceConfig; } });
+var unitConfig_1 = require("./entities/game/configure/unitConfig");
+Object.defineProperty(exports, "UnitConfig", { enumerable: true, get: function () { return unitConfig_1.UnitConfig; } });
 // Open connection postgress function
 let openConnection = ((param = undefined) => __awaiter(void 0, void 0, void 0, function* () {
     if (param == undefined)

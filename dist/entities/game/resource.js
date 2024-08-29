@@ -10,9 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Resource = void 0;
-const common_1 = require("@warlords/common");
 const typeorm_1 = require("typeorm");
 const city_1 = require("./city");
+const resourceType_1 = require("./resourceType");
 let Resource = class Resource {
     constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
@@ -30,9 +30,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Resource.prototype, "amount", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], Resource.prototype, "type", void 0);
+    (0, typeorm_1.OneToOne)(() => resourceType_1.ResourceType),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", resourceType_1.ResourceType)
+], Resource.prototype, "resourceType", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => city_1.City, (city) => city.resources),
     __metadata("design:type", city_1.City)

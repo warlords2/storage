@@ -1,4 +1,4 @@
-export declare enum TypeLogin {
+export declare enum LoginType {
     NONCE = "nonce",
     MAIL = "mail"
 }

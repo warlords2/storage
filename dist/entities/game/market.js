@@ -13,6 +13,7 @@ exports.Market = void 0;
 const typeorm_1 = require("typeorm");
 const offer_1 = require("./market/offer");
 const sale_1 = require("./market/sale");
+const world_1 = require("./world");
 let Market = class Market {
     constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
@@ -33,6 +34,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => sale_1.Sale, (sale) => sale.market),
     __metadata("design:type", Array)
 ], Market.prototype, "sales", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => world_1.World, (world) => world.market),
+    __metadata("design:type", world_1.World)
+], Market.prototype, "world", void 0);
 Market = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

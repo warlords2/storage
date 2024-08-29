@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Login = void 0;
 const typeorm_1 = require("typeorm");
 const user_1 = require("../user");
-const type_login_1 = require("./type_login");
+const loginType_1 = require("./loginType");
 let Login = class Login {
     constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
@@ -42,11 +42,11 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({
         type: "enum",
-        enum: type_login_1.TypeLogin,
-        default: type_login_1.TypeLogin.MAIL
+        enum: loginType_1.LoginType,
+        default: loginType_1.LoginType.MAIL
     }),
     __metadata("design:type", String)
-], Login.prototype, "type", void 0);
+], Login.prototype, "loginType", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)

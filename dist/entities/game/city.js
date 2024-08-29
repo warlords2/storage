@@ -16,6 +16,9 @@ const position_1 = require("./geometry/position");
 const npc_1 = require("./npc");
 const province_1 = require("./province");
 const resource_1 = require("./resource");
+const size_1 = require("./geometry/size");
+const world_1 = require("./world");
+const unit_1 = require("./unit");
 let City = class City {
     constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
@@ -33,14 +36,23 @@ __decorate([
     __metadata("design:type", String)
 ], City.prototype, "name", void 0);
 __decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], City.prototype, "stability", void 0);
+__decorate([
     (0, typeorm_1.ManyToOne)(() => npc_1.Npc, (npc) => npc.cities),
-    __metadata("design:type", npc_1.Npc)
+    __metadata("design:type", Object)
 ], City.prototype, "owner", void 0);
 __decorate([
     (0, typeorm_1.OneToOne)(() => position_1.Position),
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", position_1.Position)
 ], City.prototype, "position", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => size_1.Size),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", size_1.Size)
+], City.prototype, "size", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => building_1.Building, (building) => building.city),
     __metadata("design:type", Array)
@@ -49,6 +61,14 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => resource_1.Resource, (resource) => resource.city),
     __metadata("design:type", Array)
 ], City.prototype, "resources", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => unit_1.Unit, (unit) => unit.city),
+    __metadata("design:type", Array)
+], City.prototype, "units", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => world_1.World, (world) => world.cities),
+    __metadata("design:type", world_1.World)
+], City.prototype, "world", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => province_1.Province, (province) => province.cities),
     __metadata("design:type", province_1.Province)

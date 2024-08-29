@@ -14,6 +14,7 @@ const typeorm_1 = require("typeorm");
 const city_1 = require("./city");
 const position_1 = require("./geometry/position");
 const world_1 = require("./world");
+const size_1 = require("./geometry/size");
 let Province = class Province {
     constructor(values = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
@@ -39,6 +40,11 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => world_1.World, (world) => world.provinces),
     __metadata("design:type", world_1.World)
 ], Province.prototype, "world", void 0);
+__decorate([
+    (0, typeorm_1.OneToOne)(() => size_1.Size),
+    (0, typeorm_1.JoinColumn)(),
+    __metadata("design:type", size_1.Size)
+], Province.prototype, "size", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => city_1.City, (city) => city.province),
     __metadata("design:type", Array)
