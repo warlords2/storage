@@ -79,6 +79,14 @@ __decorate([
     (0, typeorm_1.JoinTable)(),
     __metadata("design:type", Array)
 ], UnitType.prototype, "cost", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], UnitType.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], UnitType.prototype, "updatedAt", void 0);
 UnitType = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

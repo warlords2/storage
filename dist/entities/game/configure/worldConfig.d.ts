@@ -25,6 +25,8 @@ export declare class WorldConfig implements IWorldConfig {
     npcConfig: NPCConfig;
     playerConfig: PlayerConfig;
     world: World;
+    createdAt: Date;
+    updatedAt: Date;
     examples: WorldConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

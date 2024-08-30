@@ -38,6 +38,14 @@ __decorate([
     (0, typeorm_1.OneToOne)(() => world_1.World, (world) => world.market),
     __metadata("design:type", world_1.World)
 ], Market.prototype, "world", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Market.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Market.prototype, "updatedAt", void 0);
 Market = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

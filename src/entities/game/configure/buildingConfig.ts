@@ -2,7 +2,7 @@ import { IBuildingConfig } from "@warlords/common";
 import { BuildingType } from "../buildingType";
 
 import { IsNotEmpty, IsNumber, validate, ValidationError } from "class-validator";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { WorldConfig } from "./worldConfig";
 
 @Entity()
@@ -21,6 +21,12 @@ export class BuildingConfig implements IBuildingConfig{
     @OneToOne(()=> WorldConfig, (worldConfig)=> worldConfig.buildingConfig)
     @JoinColumn()
     worldConfig: WorldConfig;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     examples: BuildingConfig[];
 

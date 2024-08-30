@@ -5,7 +5,7 @@ import { Resource } from "../resource";
 import { Unit } from "../unit";
 
 import { IsNotEmpty, IsNumber, validate, ValidationError } from "class-validator";
-import { Column, Entity, JoinColumn, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ProvinceConfig } from "./provinceConfig";
 
 @Entity()
@@ -36,6 +36,12 @@ export class CityConfig implements ICityConfig{
     @OneToOne(() => ProvinceConfig, (provinceConfig) => provinceConfig.cityConfig)
     @JoinColumn()
     provinceConfig: ProvinceConfig;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     examples: ICityConfig[];
 

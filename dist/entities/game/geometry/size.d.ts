@@ -4,5 +4,7 @@ export declare class Size implements ISize {
     height: number;
     width: number;
     weight: number;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

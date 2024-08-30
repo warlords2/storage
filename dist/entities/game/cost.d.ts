@@ -5,5 +5,7 @@ export declare class Cost implements ICost {
     resourceType: ResourceType;
     amount: number;
     fixed: boolean;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

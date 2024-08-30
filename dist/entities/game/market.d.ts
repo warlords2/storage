@@ -7,5 +7,7 @@ export declare class Market implements IMarket {
     offers: Offer[];
     sales: Sale[];
     world: World;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

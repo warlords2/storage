@@ -37,6 +37,14 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Boolean)
 ], Cost.prototype, "fixed", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Cost.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Cost.prototype, "updatedAt", void 0);
 Cost = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

@@ -56,6 +56,14 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => resourceConfig_1.ResourceConfig, (resourceConfig) => resourceConfig.resourcesType),
     __metadata("design:type", resourceConfig_1.ResourceConfig)
 ], ResourceType.prototype, "resourceConfig", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], ResourceType.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], ResourceType.prototype, "updatedAt", void 0);
 ResourceType = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

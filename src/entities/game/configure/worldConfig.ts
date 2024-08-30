@@ -9,7 +9,7 @@ import { PlayerConfig } from "./playerConfig";
 import { ProvinceConfig } from "./provinceConfig";
 import { ResourceConfig } from "./resourceConfig";
 import { UnitConfig } from "./unitConfig";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { World } from "../world";
 
 @Entity()
@@ -70,6 +70,12 @@ export class WorldConfig implements IWorldConfig{
     @OneToOne(()=> World, (world)=> world.worldConfig)
     @JoinColumn()
     world: World;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     examples: WorldConfig[];
 

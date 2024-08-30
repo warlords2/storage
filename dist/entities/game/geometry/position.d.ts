@@ -4,5 +4,7 @@ export declare class Position implements IPosition {
     x: number;
     y: number;
     z: number;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

@@ -7,6 +7,8 @@ export declare class BuildingConfig implements IBuildingConfig {
     name: String;
     buildingsType: BuildingType[];
     worldConfig: WorldConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: BuildingConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

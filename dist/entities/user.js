@@ -37,6 +37,14 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => player_1.Player, (player) => player.user),
     __metadata("design:type", Array)
 ], User.prototype, "players", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], User.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], User.prototype, "updatedAt", void 0);
 User = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

@@ -1,5 +1,5 @@
 import { IMarket } from "@warlords/common";
-import { Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { CreateDateColumn, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Offer } from "./market/offer";
 import { Sale } from "./market/sale";
 import { World } from "./world";
@@ -18,6 +18,12 @@ export class Market implements IMarket{
 
     @OneToOne(()=> World, (world)=> world.market)
     world: World;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

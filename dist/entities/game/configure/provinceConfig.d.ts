@@ -12,6 +12,8 @@ export declare class ProvinceConfig implements IProvinceConfig {
     size: Size;
     cityConfig: CityConfig;
     worldConfig: WorldConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: ProvinceConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

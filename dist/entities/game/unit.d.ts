@@ -6,5 +6,7 @@ export declare class Unit implements IUnit {
     unitType: UnitType;
     ammount: number;
     city: City;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

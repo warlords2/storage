@@ -1,5 +1,5 @@
 import { IResourceType } from "@warlords/common";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ResourceConfig } from "./configure/resourceConfig";
 
 @Entity()
@@ -31,6 +31,12 @@ export class ResourceType implements IResourceType{
 
     @ManyToOne(() => ResourceConfig, (resourceConfig) => resourceConfig.resourcesType)
     resourceConfig: ResourceConfig;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

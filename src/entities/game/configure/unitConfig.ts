@@ -2,7 +2,7 @@ import { IUnitConfig, IUnitType } from "@warlords/common";
 import { UnitType } from "../unitType";
 
 import { IsNotEmpty, IsNumber, validate, ValidationError } from "class-validator";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { WorldConfig } from "./worldConfig";
 
 @Entity()
@@ -39,6 +39,13 @@ export class UnitConfig implements IUnitConfig{
     @OneToOne(()=> WorldConfig, (worldConfig)=> worldConfig.unitConfig)
     @JoinColumn()
     worldConfig: WorldConfig;
+
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     examples: UnitConfig[];
     

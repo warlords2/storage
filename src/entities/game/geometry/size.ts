@@ -1,5 +1,5 @@
 import { ISize } from "@warlords/common";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Size implements ISize{
@@ -11,6 +11,12 @@ export class Size implements ISize{
     width: number;
     @Column()
     weight: number;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

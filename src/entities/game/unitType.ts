@@ -1,6 +1,6 @@
 import { IUnitType } from "@warlords/common";
 import { Cost } from "./cost";
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { World } from "./world";
 import { UnitConfig } from "./configure/unitConfig";
 
@@ -49,6 +49,12 @@ export class UnitType implements IUnitType{
     @ManyToMany(() => Cost)
     @JoinTable()
     cost: Cost[];
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

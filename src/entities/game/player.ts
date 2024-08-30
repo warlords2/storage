@@ -2,7 +2,7 @@ import { User } from "../user";
 import { Npc } from "./npc";
 import { INpc, IPlayer, NpcType} from '@warlords/common';
 import { World } from "./world";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Player extends Npc implements IPlayer, INpc{
@@ -25,6 +25,12 @@ export class Player extends Npc implements IPlayer, INpc{
 
     @ManyToOne(()=> World, (world)=> world.players)
     world: World;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         super(values);        

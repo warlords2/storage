@@ -35,6 +35,14 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], Position.prototype, "z", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Position.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Position.prototype, "updatedAt", void 0);
 Position = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

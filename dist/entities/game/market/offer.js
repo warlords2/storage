@@ -28,6 +28,14 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => market_1.Market, (market) => market.offers),
     __metadata("design:type", market_1.Market)
 ], Offer.prototype, "market", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Offer.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Offer.prototype, "updatedAt", void 0);
 Offer = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

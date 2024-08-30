@@ -13,6 +13,8 @@ export declare class NPCTypeConfig implements INPCTypeConfig {
     useMarket: boolean;
     npcConfig: NPCConfig;
     cityInitial: CityConfig;
+    createdAt: Date;
+    updatedAt: Date;
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);
 }

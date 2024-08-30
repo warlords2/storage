@@ -1,5 +1,5 @@
 import { ISale } from '@warlords/common';
-import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { Market } from '../market';
 
 @Entity()
@@ -10,6 +10,12 @@ export class Sale implements ISale{
 
     @ManyToOne(()=> Market, (market)=> market.offers)
     market: Market;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

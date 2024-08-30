@@ -3,7 +3,7 @@ import { INPCTypeConfig, NpcType } from "@warlords/common";
 import { CityConfig } from "./cityConfig";
 
 import { IsNotEmpty, IsNumber, validate, ValidationError } from "class-validator";
-import { Collection, Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Collection, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { NPCConfig } from "./npcConfig";
 
 @Entity()
@@ -43,6 +43,12 @@ export class NPCTypeConfig implements INPCTypeConfig{
     @OneToOne(() => CityConfig)
     @JoinColumn()
     cityInitial: CityConfig;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     isValid(): Promise<ValidationError[]>{
 

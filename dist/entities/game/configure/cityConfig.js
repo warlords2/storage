@@ -63,6 +63,14 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", provinceConfig_1.ProvinceConfig)
 ], CityConfig.prototype, "provinceConfig", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], CityConfig.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], CityConfig.prototype, "updatedAt", void 0);
 CityConfig = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

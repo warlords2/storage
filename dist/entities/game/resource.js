@@ -26,6 +26,10 @@ __decorate([
     __metadata("design:type", String)
 ], Resource.prototype, "id", void 0);
 __decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Resource.prototype, "updateAmountAt", void 0);
+__decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], Resource.prototype, "amount", void 0);
@@ -38,6 +42,14 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => city_1.City, (city) => city.resources),
     __metadata("design:type", city_1.City)
 ], Resource.prototype, "city", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Resource.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Resource.prototype, "updatedAt", void 0);
 Resource = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

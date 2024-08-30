@@ -1,5 +1,5 @@
 import { INpc, NpcType } from '@warlords/common';
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { City } from './city';
 import { World } from './world';
 
@@ -24,6 +24,12 @@ export class Npc implements INpc{
 
     @OneToMany(()=> City, (city)=> city.owner)
     cities: City[];
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

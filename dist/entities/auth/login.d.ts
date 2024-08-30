@@ -9,5 +9,7 @@ export declare class Login implements ILogin {
     loginType: LoginType;
     userId: string;
     user: User;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

@@ -18,5 +18,7 @@ export declare class World implements IWorld {
     npcs: Npc[];
     worldConfig: WorldConfig;
     players: Player[];
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

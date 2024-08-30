@@ -75,6 +75,14 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", Array)
 ], World.prototype, "players", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], World.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], World.prototype, "updatedAt", void 0);
 World = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

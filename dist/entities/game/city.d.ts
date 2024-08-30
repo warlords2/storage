@@ -18,5 +18,7 @@ export declare class City implements ICity {
     units: Unit[];
     world: World;
     province: Province;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

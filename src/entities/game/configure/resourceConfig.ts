@@ -2,7 +2,7 @@ import { IResourceConfig, IResourceType } from "@warlords/common";
 import { ResourceType } from "../resourceType";
 
 import { IsNotEmpty, IsNumber, validate, ValidationError } from "class-validator";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { WorldConfig } from "./worldConfig";
 
 @Entity()
@@ -21,6 +21,13 @@ export class ResourceConfig implements IResourceConfig{
     @OneToOne(()=> WorldConfig, (worldConfig)=> worldConfig.resourceConfig)
     @JoinColumn()
     worldConfig: WorldConfig;
+
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     examples: ResourceConfig[];
 

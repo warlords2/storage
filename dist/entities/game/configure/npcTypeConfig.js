@@ -74,6 +74,14 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", cityConfig_1.CityConfig)
 ], NPCTypeConfig.prototype, "cityInitial", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], NPCTypeConfig.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], NPCTypeConfig.prototype, "updatedAt", void 0);
 NPCTypeConfig = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

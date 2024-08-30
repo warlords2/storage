@@ -13,6 +13,8 @@ export declare class CityConfig implements ICityConfig {
     initialResources: Resource[];
     initialUnits: Unit[];
     provinceConfig: ProvinceConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: ICityConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

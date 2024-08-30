@@ -7,6 +7,8 @@ export declare class PlayerConfig implements IPlayerConfig {
     choiceProvince: boolean;
     choiceCityPosition: boolean;
     worldConfig: WorldConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: PlayerConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

@@ -13,6 +13,8 @@ export declare class UnitConfig implements IUnitConfig {
     speedInExternalProvincePercentage: number;
     unitsType: UnitType[];
     worldConfig: WorldConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: UnitConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

@@ -1,5 +1,5 @@
 import { IProvince } from '@warlords/common';
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { City } from './city';
 import { Position } from './geometry/position';
 import { World } from './world';
@@ -27,6 +27,12 @@ export class Province implements IProvince{
 
     @OneToMany(()=> City, (city)=> city.province)
     cities: City[];
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

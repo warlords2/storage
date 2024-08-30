@@ -73,6 +73,14 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => province_1.Province, (province) => province.cities),
     __metadata("design:type", province_1.Province)
 ], City.prototype, "province", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], City.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], City.prototype, "updatedAt", void 0);
 City = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

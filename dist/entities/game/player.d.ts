@@ -8,5 +8,7 @@ export declare class Player extends Npc implements IPlayer, INpc {
     npcType: NpcType;
     user: User;
     world: World;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

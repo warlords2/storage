@@ -10,5 +10,7 @@ export declare class Province implements IProvince {
     world: World;
     size: Size;
     cities: City[];
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

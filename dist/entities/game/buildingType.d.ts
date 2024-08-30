@@ -39,5 +39,7 @@ export declare class BuildingType implements IBuildingType {
     unitsGenerate: UnitType[];
     resources: ResourceType[];
     cost: Cost[];
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

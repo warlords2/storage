@@ -1,5 +1,5 @@
 import { IBuilding } from "@warlords/common";
-import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { City } from "./city";
 import { Position } from "./geometry/position";
 import { BuildingType } from "./buildingType";
@@ -26,6 +26,12 @@ export class Building implements IBuilding {
     @OneToOne(() => Position)
     @JoinColumn()
     position: Position;
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

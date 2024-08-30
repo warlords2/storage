@@ -7,6 +7,8 @@ export declare class ResourceConfig implements IResourceConfig {
     name: String;
     resourcesType: ResourceType[];
     worldConfig: WorldConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: ResourceConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

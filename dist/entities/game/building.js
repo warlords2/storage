@@ -44,6 +44,14 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", position_1.Position)
 ], Building.prototype, "position", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Building.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Building.prototype, "updatedAt", void 0);
 Building = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

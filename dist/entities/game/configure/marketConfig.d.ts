@@ -16,6 +16,8 @@ export declare class MarketConfig implements IMarketConfig {
     limitedProvinceSaltTrade: boolean;
     limitProvinceSaltTrade: number;
     worldConfig: WorldConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: MarketConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

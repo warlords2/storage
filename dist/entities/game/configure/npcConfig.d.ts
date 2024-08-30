@@ -9,6 +9,8 @@ export declare class NPCConfig implements INPCConfig {
     interactionDistance: number;
     npcTypes: NPCTypeConfig[];
     worldConfig: WorldConfig;
+    createdAt: Date;
+    updatedAt: Date;
     examples: NPCConfig[];
     isValid(): Promise<ValidationError[]>;
     constructor(values?: any);

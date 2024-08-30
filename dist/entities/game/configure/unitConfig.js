@@ -69,6 +69,14 @@ __decorate([
     (0, typeorm_1.JoinColumn)(),
     __metadata("design:type", worldConfig_1.WorldConfig)
 ], UnitConfig.prototype, "worldConfig", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], UnitConfig.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], UnitConfig.prototype, "updatedAt", void 0);
 UnitConfig = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

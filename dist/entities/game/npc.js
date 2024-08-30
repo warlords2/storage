@@ -46,6 +46,14 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => city_1.City, (city) => city.owner),
     __metadata("design:type", Array)
 ], Npc.prototype, "cities", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Npc.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Npc.prototype, "updatedAt", void 0);
 Npc = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

@@ -55,6 +55,14 @@ __decorate([
     (0, typeorm_1.ManyToOne)(type => user_1.User, (user) => user.logins),
     __metadata("design:type", user_1.User)
 ], Login.prototype, "user", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Login.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Login.prototype, "updatedAt", void 0);
 Login = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

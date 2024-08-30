@@ -48,6 +48,14 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => world_1.World, (world) => world.players),
     __metadata("design:type", world_1.World)
 ], Player.prototype, "world", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Player.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Player.prototype, "updatedAt", void 0);
 Player = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

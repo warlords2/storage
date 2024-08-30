@@ -1,5 +1,5 @@
 import { IBuildingType } from "@warlords/common";
-import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { ResourceType } from "./resourceType";
 import { Size } from "./geometry/size";
 import { UnitType } from "./unitType";
@@ -112,6 +112,12 @@ export class BuildingType implements IBuildingType {
     @ManyToMany(() => Cost)
     @JoinTable()
     cost: Cost[];
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {

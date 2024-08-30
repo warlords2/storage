@@ -17,5 +17,7 @@ export declare class UnitType implements IUnitType {
     world: World;
     unitConfig: UnitConfig;
     cost: Cost[];
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

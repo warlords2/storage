@@ -10,5 +10,7 @@ export declare class ResourceType implements IResourceType {
     noMarket: boolean;
     fixed: boolean;
     resourceConfig: ResourceConfig;
+    createdAt: Date;
+    updatedAt: Date;
     constructor(values?: any);
 }

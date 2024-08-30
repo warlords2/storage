@@ -49,6 +49,14 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => city_1.City, (city) => city.province),
     __metadata("design:type", Array)
 ], Province.prototype, "cities", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Province.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp' }),
+    __metadata("design:type", Date)
+], Province.prototype, "updatedAt", void 0);
 Province = __decorate([
     (0, typeorm_1.Entity)(),
     __metadata("design:paramtypes", [Object])

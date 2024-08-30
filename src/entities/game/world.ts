@@ -1,5 +1,5 @@
 import { INpc, IPlayer, IProvince, IWorld } from "@warlords/common";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Market } from "./market";
 import { Npc } from "./npc";
 import { Player } from "./player";
@@ -49,6 +49,12 @@ export class World implements IWorld{
     @OneToMany(() => Player, (player)=> player.world)
     @JoinColumn()
     players: Player[];
+
+    @CreateDateColumn({ type: 'timestamp' })
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp' })
+    updatedAt: Date;
 
     constructor(values: any = {}) {
         if (Object.entries(values).length === 0 && values.constructor === Object) {
