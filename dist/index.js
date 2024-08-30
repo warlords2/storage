@@ -9,18 +9,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ManagerDatabase = exports.UnitConfig = exports.ResourceConfig = exports.ProvinceConfig = exports.PlayerConfig = exports.NPCTypeConfig = exports.NPCConfig = exports.MarketConfig = exports.CityConfig = exports.BuildingConfig = exports.WorldConfig = exports.Sale = exports.Offer = exports.Position = exports.Building = exports.City = exports.Market = exports.Npc = exports.Player = exports.Province = exports.Resource = exports.World = exports.LoginType = exports.Login = exports.User = exports.DataSource = void 0;
+exports.ManagerDatabase = exports.UnitConfig = exports.ResourceConfig = exports.ProvinceConfig = exports.PlayerConfig = exports.NPCTypeConfig = exports.NPCConfig = exports.MarketConfig = exports.CityConfig = exports.BuildingConfig = exports.WorldConfig = exports.Cost = exports.Sale = exports.Offer = exports.Size = exports.Position = exports.ResourceType = exports.UnitType = exports.Unit = exports.BuildingType = exports.Building = exports.City = exports.Market = exports.Npc = exports.Player = exports.Province = exports.Resource = exports.World = exports.LoginType = exports.Login = exports.User = exports.DataSource = void 0;
 let dotenv = require('dotenv');
 dotenv.config({ path: './.env' });
 const database_1 = require("./database");
 var typeorm_1 = require("typeorm");
 Object.defineProperty(exports, "DataSource", { enumerable: true, get: function () { return typeorm_1.DataSource; } });
+// User and Authentication
 var user_1 = require("./entities/user");
 Object.defineProperty(exports, "User", { enumerable: true, get: function () { return user_1.User; } });
 var login_1 = require("./entities/auth/login");
 Object.defineProperty(exports, "Login", { enumerable: true, get: function () { return login_1.Login; } });
 var loginType_1 = require("./entities/auth/loginType");
 Object.defineProperty(exports, "LoginType", { enumerable: true, get: function () { return loginType_1.LoginType; } });
+// Game Entities
 var world_1 = require("./entities/game/world");
 Object.defineProperty(exports, "World", { enumerable: true, get: function () { return world_1.World; } });
 var resource_1 = require("./entities/game/resource");
@@ -37,12 +39,28 @@ var city_1 = require("./entities/game/city");
 Object.defineProperty(exports, "City", { enumerable: true, get: function () { return city_1.City; } });
 var building_1 = require("./entities/game/building");
 Object.defineProperty(exports, "Building", { enumerable: true, get: function () { return building_1.Building; } });
+var buildingType_1 = require("./entities/game/buildingType");
+Object.defineProperty(exports, "BuildingType", { enumerable: true, get: function () { return buildingType_1.BuildingType; } });
+var unit_1 = require("./entities/game/unit");
+Object.defineProperty(exports, "Unit", { enumerable: true, get: function () { return unit_1.Unit; } });
+var unitType_1 = require("./entities/game/unitType");
+Object.defineProperty(exports, "UnitType", { enumerable: true, get: function () { return unitType_1.UnitType; } });
+var resourceType_1 = require("./entities/game/resourceType");
+Object.defineProperty(exports, "ResourceType", { enumerable: true, get: function () { return resourceType_1.ResourceType; } });
+// Game Geometry
 var position_1 = require("./entities/game/geometry/position");
 Object.defineProperty(exports, "Position", { enumerable: true, get: function () { return position_1.Position; } });
+var size_1 = require("./entities/game/geometry/size");
+Object.defineProperty(exports, "Size", { enumerable: true, get: function () { return size_1.Size; } });
+// Game Market
 var offer_1 = require("./entities/game/market/offer");
 Object.defineProperty(exports, "Offer", { enumerable: true, get: function () { return offer_1.Offer; } });
 var sale_1 = require("./entities/game/market/sale");
 Object.defineProperty(exports, "Sale", { enumerable: true, get: function () { return sale_1.Sale; } });
+// Game Costs
+var cost_1 = require("./entities/game/cost");
+Object.defineProperty(exports, "Cost", { enumerable: true, get: function () { return cost_1.Cost; } });
+// Game Configuration
 var worldConfig_1 = require("./entities/game/configure/worldConfig");
 Object.defineProperty(exports, "WorldConfig", { enumerable: true, get: function () { return worldConfig_1.WorldConfig; } });
 var buildingConfig_1 = require("./entities/game/configure/buildingConfig");
