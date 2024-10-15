@@ -167,17 +167,15 @@ class ManagerDatabase {
     ;
 }
 exports.ManagerDatabase = ManagerDatabase;
-/* Test
-import { User } from "./entities/user";
-openConnection().then(async (datasource: DataSource)=>{
-    console.log("INICIANDO TESTE")
-
-    let reposi = datasource.getRepository(User);
-    console.log(await reposi.count());
-
-}).catch(err=>{
+/* Test */
+const user_2 = require("./entities/user");
+openConnection().then((datasource) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("INICIANDO TESTE");
+    let reposi = datasource.getRepository(user_2.User);
+    console.log(yield reposi.count());
+})).catch(err => {
     console.log("Error in connection :");
     console.error(err);
-})
+});
 /**/ 
 //# sourceMappingURL=index.js.map
