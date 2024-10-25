@@ -28,7 +28,7 @@ export class WorldConfig implements IWorldConfig{
     limitUser: number;
     
     @Column()
-    hasMaxTimeInHours: number;
+    hasMaxTimeInHours: boolean;
     
     @Column()
     maxTimeInHours: number;

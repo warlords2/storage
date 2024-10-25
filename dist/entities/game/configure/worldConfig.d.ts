@@ -13,7 +13,7 @@ export declare class WorldConfig implements IWorldConfig {
     name: String;
     hasLimitUser: boolean;
     limitUser: number;
-    hasMaxTimeInHours: number;
+    hasMaxTimeInHours: boolean;
     maxTimeInHours: number;
     hasCityForVitory: boolean;
     cityForVitory: number;

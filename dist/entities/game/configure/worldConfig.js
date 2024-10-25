@@ -51,7 +51,7 @@ __decorate([
 ], WorldConfig.prototype, "limitUser", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", Boolean)
 ], WorldConfig.prototype, "hasMaxTimeInHours", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
