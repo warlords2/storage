@@ -6,7 +6,6 @@ import { buildDatabase, ConectionParameter}  from "./database";
 
 export { DataSource } from "typeorm";
 
-
 // User and Authentication
 export { User } from "./entities/user";
 export { Login } from "./entities/auth/login";

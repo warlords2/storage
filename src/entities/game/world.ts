@@ -49,6 +49,8 @@ export class World implements IWorld{
     @OneToMany(() => Player, (player)=> player.world)
     @JoinColumn()
     players: Player[];
+    
+    // @todo colocar flag disabled
 
     @CreateDateColumn({ type: 'timestamp' })
     createdAt: Date;
